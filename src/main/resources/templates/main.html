@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>투석라운지</title>
+    <link rel="stylesheet" href="/mainstyle.css">
+</head>
+<body>
+<div class="background">
+    <div class="mobile-container">
+        <div class="header">
+            <div class="lounge-logo">
+                <img src="/images/lounge-logo.png">
+            </div>
+            <div class="lounge-logo2">
+                <img src="/images/lounge-logo2.png">
+            </div>
+        </div>
+        <div class="main-banner">
+            <h1>투석 요법,<br>생활과 식습관 조절 필수!</h1>
+            <button class="find-center-btn">
+                <img src="/images/search-icon.png" class="search-icon" alt="서치 아이콘">근처 투석 센터 찾기
+            </button>
+        </div>
+        <div class="services">
+            <h2>투석라운지 서비스</h2>
+            <div class="service-cards">
+                <button class="service-card diet-btn">
+                    <div class="service-card-content">
+                        <h3>식사 관리</h3>
+                        <p>투석 환자를 위한<br>영양 가이드와 레시피</p>
+                    </div>
+                    <img src="/images/diet2-icon.png" alt="식사 관리 아이콘">
+                </button>
+                <button class="service-card emergency-btn">
+                    <div class="service-card-content">
+                        <h3>응급가이드</h3>
+                        <p>응급 상황에 필요한<br>빠른 가이드</p>
+                    </div>
+                    <img src="/images/emergency-icon.png" alt="응급가이드 아이콘">
+                </button>
+                <button class="service-card lifestyle-btn" onclick="window.location.href='/service/management'">
+                    <div class="service-card-content">
+                        <h3>투석 환자<br>생활관리법</h3>
+                        <p>투석 환자<br>생활 관리 요령</p>
+                    </div>
+                    <img src="/images/lifestyle-icon.png" alt="생활관리법 아이콘">
+                </button>
+                <button class="service-card education-btn">
+                    <div class="service-card-content">
+                        <h3>투석 요법<br>교육자료</h3>
+                        <p>투석 요법<br>생활 관리 요령</p>
+                    </div>
+                    <img src="/images/education2-icon.png" alt="교육 자료 아이콘">
+                </button>
+            </div>
+        </div>
+
+        <div class="additional-banners">
+            <div class="additional-banner1">
+                <span class="banner-text">주변에 있는 투석 센터를<br>지도에서 확인할 수 있어요</span>
+            </div>
+            <div class="additional-banner2">
+                <span class="banner-text"><span class="highlight">투석 생활을 개선하는 법</span><br><span class="highlight2">건강한 식단으로 건강 관리하세요!</span></span>
+            </div>
+            <div class="additional-banner3">
+                <span class="banner-text"><span class="highlight3">혈액투석이 필요한 모든순간</span><br><span class="highlight4">투석라운지로 유익한 정보를 얻을 수 있어요</span></span>
+            </div>
+        </div>
+
+        <div class="footer-nav">
+            <ul>
+                <li class="nav-item1">
+                    <a href="#">
+                        <a th:href="@{/service/management}">
+                            <img src="/images/home-icon.png" alt="홈 아이콘">
+                        </a>
+                        홈
+                    </a>
+                </li>
+                <li class="nav-item2">
+                    <a href="#"><img src="/images/diet-icon.png" alt="식단 아이콘">식단</a>
+                </li>
+                <li class="nav-item3">
+                    <a href="#"><img src="/images/education-icon.png" alt="교육 자료 아이콘">교육자료</a>
+                </li>
+            </ul>
+            <div class="search-nearby">
+                    <span class="search-nearby-text">
+                        <span class="small-text">근처 병원</span><br>
+                        <span class="large-text">검색</span>
+                    </span>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
