@@ -309,7 +309,7 @@ body {
     align-items: center;
 }
 
-.search-nearby {
+button.search-nearby {
     width: 98px;
     height: 98px;
     background: #00B2FF;
@@ -322,6 +322,7 @@ body {
     position: absolute;
     right: 30px;
     bottom: 10px;
+    border: none;
 }
 
 .search-nearby .search-nearby-text {
@@ -336,6 +337,7 @@ body {
 .search-nearby .search-nearby-text .small-text {
     font-size: 15px;
     margin-top: 15px;
+    font-family: 'Pretendard', sans-serif;
 }
 
 .search-nearby .search-nearby-text .large-text {
@@ -369,15 +371,21 @@ body {
         height: 30px;
     }
 
-    .search-nearby {
+    button.search-nearby {
         width: 85px;
         height: 85px;
         right: 8px;
         bottom: 15px;
     }
 
+    .search-nearby .search-nearby-text .small-text {
+        font-size: 24px;
+        font-family: 'Pretendard', sans-serif;
+    }
+
     .search-nearby .search-nearby-text .large-text {
         font-size: 24px;
+        font-family: 'Black Han Sans', sans-serif;
     }
 
     .additional-banner1, .additional-banner2, .additional-banner3 {
@@ -387,5 +395,6 @@ body {
 
     .additional-banner1 .banner-text, .additional-banner2 .banner-text, .additional-banner3 .banner-text {
         font-size: 15px;
+        font-family: 'Pretendard', sans-serif;
     }
 }

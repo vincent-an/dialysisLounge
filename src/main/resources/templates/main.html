@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -34,7 +35,7 @@
                     <img src="/images/diet2-icon.png" alt="식사 관리 아이콘">
                 </button>
                 <button class="service-card emergency-btn">
-                    <div class="service-card-content">
+                    <div class="service-card-content" onclick="window.location.href='/service/emergency'">
                         <h3>응급가이드</h3>
                         <p>응급 상황에 필요한<br>빠른 가이드</p>
                     </div>
@@ -73,10 +74,8 @@
             <ul>
                 <li class="nav-item1">
                     <a href="#">
-                        <a th:href="@{/service/management}">
-                            <img src="/images/home-icon.png" alt="홈 아이콘">
-                        </a>
-                        홈
+                        <a th:href="@{/main}">
+                            <img src="/images/home-icon.png" alt="홈 아이콘">홈</a>
                     </a>
                 </li>
                 <li class="nav-item2">
@@ -86,12 +85,12 @@
                     <a href="#"><img src="/images/education-icon.png" alt="교육 자료 아이콘">교육자료</a>
                 </li>
             </ul>
-            <div class="search-nearby">
+            <button class="search-nearby">
                     <span class="search-nearby-text">
                         <span class="small-text">근처 병원</span><br>
                         <span class="large-text">검색</span>
                     </span>
-            </div>
+            </button>
         </div>
     </div>
 </div>

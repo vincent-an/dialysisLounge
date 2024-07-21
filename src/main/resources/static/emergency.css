@@ -23,6 +23,7 @@ body, html {
     flex-direction: column;
     height: 100vh;
     overflow-y: auto;
+    overflow-x: hidden;
 }
 
 .top-bar {
@@ -62,45 +63,73 @@ body, html {
     margin-left: 10px;
 }
 
-.content {
-    padding: 20px;
-    padding-top: 140px;
+.image {
+    width: 462px;
+    height: 250px;
+    margin-top: 140px;
 }
 
-button.item {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 0;
-    border: none;
-    background: none;
-    width: 100%;
-    border-bottom: 1px solid #e0e0e0;
-    cursor: pointer;
+.lounge-data {
+    width: 420px;
+    height: 56px;
+    background: url("images/lounge-data.png") center center/cover no-repeat;
+    border-radius: 15px;
+    position: relative;
+    margin: 20px 0px 0px 20px;
+    overflow: hidden;
 }
 
-.text-content {
-    display: flex;
-    flex-direction: column;
+.lounge-data-largetext {
+    color: #00b2ff;
+    font-family: 'Pretendard', sans-serif;
+    font-weight: 600;
+    font-size: 20px;
+    position: absolute;
+    top: 20px;
+    left: 19px;
     text-align: left;
 }
 
-button.item h2 {
-    font-size: 20px;
-    color: #000;
+.lounge-data-smalltext {
+    color: #444B5A;
     font-family: 'Pretendard', sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    position: absolute;
+    top: 23px;
+    left: 150px;
+    text-align: left;
 }
 
-button.item p {
-    font-size: 15px;
-    color: #919191;
-    margin: 5px 0 0 0;
-    font-family: 'Pretendard', sans-serif;
+.content {
+    width: 400px;
+    padding: 0px 0px 20px 20px;
 }
 
-button.item img {
-    height: 44px;
-    width: 44px;
+.content-header {
+    display: flex;
+    align-items: center;
+}
+
+.emergency-content-icon{
+    width: 22px;
+    height: 22px;
+    margin-right: 13px;
+}
+
+.content h2 {
+    color: #00B2FF;
+    font-size: 22px;
+    font-weight: 600;
+}
+
+.content-text{
+    color: #636363;
+    font-size: 13px;
+    font-weight: 400;
+    display: block;
+    padding-left: 36px;
+    line-height: 1.6;
 }
 
 @media (max-width: 462px) {
@@ -118,15 +147,24 @@ button.item img {
         height: 28px;
     }
 
-    .content {
-        padding-top: 120px;
+    .image {
+        width: 100%;
     }
 
-    button.item h2 {
+    .lounge-data {
+        width: 365px;
+    }
+
+    .lounge-data-smalltext {
+        font-size: 14px;
+    }
+
+    .content h2 {
         font-size: 18px;
     }
 
-    button.item p {
-        font-size: 14px;
+    .content-text {
+        width: 325px;
     }
+
 }

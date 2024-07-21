@@ -9,7 +9,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class ServiceController {
 
     @GetMapping("/management")
-    public String Management() {
+    public String management() {
         return "lifeManagement";
+    }
+
+    @GetMapping("/emergency")
+    public String emergency() {
+        return "emergency";
     }
 }
