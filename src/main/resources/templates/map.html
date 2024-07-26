@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>지도</title>
+    <link rel="stylesheet" href="/map.css">
+</head>
+<body>
+<div class="background">
+    <div class="mobile-container">
+        <div class="search-tab-bar">
+            <button class="back-button">
+                <a th:href="@{/main}">
+                    <img src="/images/back-icon.png" alt="뒤로가기" class="back-icon">
+                </a>
+            </button>
+            <input type="text" placeholder="    센터명을 검색하세요" class="search-bar">
+            <div class="search-keywords">
+                <button class="keyword-button1" id="open">영업중</button>
+                <button class="keyword-button2" id="night">심야센터</button>
+                <button class="keyword-button3" id="24-7">연중무휴</button>
+            </div>
+        </div>
+        <div id="map" style="width:470px;height:400px;"></div>
+
+        <script src="//dapi.kakao.com/v2/maps/sdk.js?appkey=88be0d96487f1858990fc2656f61eeff"></script>
+        <script>
+            var mapContainer = document.getElementById('map'), // 지도를 표시할 div
+                mapOption = {
+                    center: new kakao.maps.LatLng(37.460619, 127.165000), // 지도의 중심좌표
+                    level: 8, // 지도의 확대 레벨
+                    mapTypeId : kakao.maps.MapTypeId.ROADMAP // 지도종류
+                };
+
+            // 지도를 생성한다
+            var map = new kakao.maps.Map(mapContainer, mapOption);
+
+            // 첫 번째 마커와 인포윈도우
+            var marker1 = new kakao.maps.Marker({
+                position: new kakao.maps.LatLng(37.460619, 127.165000),
+                map: map
+            });
+            var infowindow1 = new kakao.maps.InfoWindow({
+                content : '<div style="padding:5px;">을지대 투석센터</div>'
+            });
+            infowindow1.open(map, marker1);
+
+            // 두 번째 마커와 인포윈도우
+            var marker2 = new kakao.maps.Marker({
+                position: new kakao.maps.LatLng(37.493700, 127.121930),
+                map: map
+            });
+            var infowindow2 = new kakao.maps.InfoWindow({
+                content : '<div style="padding:5px;">바른결내과의원</div>'
+            });
+            infowindow2.open(map, marker2);
+
+            // 세 번째 마커와 인포윈도우
+            var marker3 = new kakao.maps.Marker({
+                position: new kakao.maps.LatLng(37.487086, 127.124170),
+                map: map
+            });
+            var infowindow3 = new kakao.maps.InfoWindow({
+                content : '<div style="padding:5px;">인공신장실</div>'
+            });
+            infowindow3.open(map, marker3);
+
+            // 네 번째 마커와 인포윈도우
+            var marker4 = new kakao.maps.Marker({
+                position: new kakao.maps.LatLng(37.444656, 127.159228),
+                map: map
+            });
+            var infowindow4 = new kakao.maps.InfoWindow({
+                content : '<div style="padding:5px;">성남요양병원</div>'
+            });
+            infowindow4.open(map, marker4);
+
+        </script>
+</body>
+</html>

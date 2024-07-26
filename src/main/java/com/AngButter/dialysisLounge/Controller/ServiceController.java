@@ -17,4 +17,14 @@ public class ServiceController {
     public String emergency() {
         return "emergency";
     }
+
+    @GetMapping("/education-magazine")
+    public String educationmagazine() {
+        return "education-magazine";
+    }
+
+    @GetMapping("/map")
+    public String map() {
+        return "map";
+    }
 }
