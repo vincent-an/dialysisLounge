@@ -69,6 +69,17 @@ body, html {
     font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
 }
 
+.search-form {
+    position: relative; /* 부모가 absolute를 가지고 있는 경우 position 설정 필요 */
+    display: flex; /* flexbox를 사용하여 자식 요소 정렬 */
+    align-items: center; /* 자식 요소 수직 가운데 정렬 */
+    justify-content: center; /* 자식 요소 수평 가운데 정렬 */
+    width: 100%; /* 필요에 따라 조정 가능 */
+    max-width: 360px; /* 검색 바의 최대 너비 설정 */
+    margin: 0 auto; /* 가로 가운데 정렬 */
+    padding: 0; /* 기본 padding 제거 */
+}
+
 .search-keywords {
     display: flex;
     justify-content: space-around;

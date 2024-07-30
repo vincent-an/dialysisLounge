@@ -1,5 +1,4 @@
 @import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css");
-
 body, html {
     margin: 0;
     padding: 0;
@@ -75,18 +74,26 @@ body, html {
     font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
 }
 
-.tab {
+button.tab {
     width: 50%;
     text-align: center;
     padding: 10px 0;
     font-size: 16px;
     color: #D9D9D9;
     cursor: pointer;
+    font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: 2px solid #D9D9D9;
+    background-color: white;
 }
 
-.tab.active {
+button.tab.active {
     color: #00b2ff;
     border-bottom: 2px solid #00b2ff;
+    font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+    background-color: white;
 }
 
 button.banner {

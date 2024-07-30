@@ -5,6 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>지도</title>
     <link rel="stylesheet" href="/map.css">
+    <style>
+        .wrap {position: absolute;left: 0;bottom: 40px;width: 288px;height: 132px;margin-left: -144px;text-align: left;overflow: hidden;font-size: 12px;font-family: 'Malgun Gothic', dotum, '돋움', sans-serif;line-height: 1.5;}
+        .wrap * {padding: 0;margin: 0;}
+        .wrap .info {width: 286px;height: 120px;border-radius: 5px;border-bottom: 2px solid #ccc;border-right: 1px solid #ccc;overflow: hidden;background: #fff;}
+        .wrap .info:nth-child(1) {border: 0;box-shadow: 0px 1px 2px #888;}
+        .info .title {padding: 5px 0 0 10px;height: 30px;background: #eee;border-bottom: 1px solid #ddd;font-size: 18px;font-weight: bold;}
+        .info .close {position: absolute;top: 10px;right: 10px;color: #888;width: 17px;height: 17px;background: url('https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/overlay_close.png');}
+        .info .close:hover {cursor: pointer;}
+        .info .body {position: relative;overflow: hidden;}
+        .info .desc {position: relative;margin: 13px 0 0 90px;height: 75px;}
+        .desc .ellipsis {overflow: hidden;text-overflow: ellipsis;white-space: nowrap;}
+        .desc .jibun {font-size: 11px;color: #888;margin-top: -2px;}
+        .info .img {position: absolute;top: 6px;left: 5px;width: 73px;height: 71px;border: 1px solid #ddd;color: #888;overflow: hidden;}
+        .info:after {content: '';position: absolute;margin-left: -12px;left: 50%;bottom: 0;width: 22px;height: 12px;background: url('https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/vertex_white.png')}
+        .info .link {color: #5085BB;}
+    </style>
 </head>
 <body>
 <div class="background">
@@ -25,10 +41,10 @@
         <div id="map" style="width:470px;height:400px;"></div>
 
         <script src="//dapi.kakao.com/v2/maps/sdk.js?appkey=88be0d96487f1858990fc2656f61eeff"></script>
-        <script>
+        <script th:inline="javascript">
             var mapContainer = document.getElementById('map'), // 지도를 표시할 div
                 mapOption = {
-                    center: new kakao.maps.LatLng(37.460619, 127.165000), // 지도의 중심좌표
+                    center: new kakao.maps.LatLng(37.538376, 127.140488), // 지도의 중심좌표
                     level: 8, // 지도의 확대 레벨
                     mapTypeId : kakao.maps.MapTypeId.ROADMAP // 지도종류
                 };
@@ -36,158 +52,64 @@
             // 지도를 생성한다
             var map = new kakao.maps.Map(mapContainer, mapOption);
 
-            // 첫 번째 마커와 인포윈도우
-            var marker1 = new kakao.maps.Marker({
-                position: new kakao.maps.LatLng(37.460619, 127.165000),
-                map: map
-            });
-            var infowindow1 = new kakao.maps.InfoWindow({
-                content : '<div style="padding:5px;">을지대 투석센터</div>'
-            });
-            infowindow1.open(map, marker1);
+            /*<![CDATA[*/
 
-            // 두 번째 마커와 인포윈도우
-            var marker2 = new kakao.maps.Marker({
-                position: new kakao.maps.LatLng(37.493700, 127.121930),
-                map: map
-            });
-            var infowindow2 = new kakao.maps.InfoWindow({
-                content : '<div style="padding:5px;">바른결내과의원</div>'
-            });
-            infowindow2.open(map, marker2);
+            var positions = [
+                /*[# th:each="address : ${addressList}"]*/
+                {
+                    content: '<div class="wrap">' +
+                        '<div class="info">' +
+                        '<div class="title">' +
+                        '[(${address.hospitalName})]' +
+                        '<div class="close" onclick="closeOverlay()" title="닫기"></div>' +
+                        '</div>' +
+                        '<div class="body">' +
+                        '<div class="img">' +
+                        '<img src="/images/euhospital.png" width="73" height="70">' +
+                        '</div>' +
+                        '<div class="desc">' +
+                        '<div class="ellipsis">[(${address.address})]</div>' +
+                        '<div class="ellipsis">[(${address.dAddress})]</div>' +
+                        '                <div class="jibun ellipsis">' +
+                        '            [(${address.openingTime})]' +
+                        '~[(${address.closingTime})]까지 진료</div>' +
+                        '<div><a href="https://place.map.kakao.com/1537702311" target="_blank" class="link">상세정보</a></div>' +
+                        '</div>' +
+                        '</div>' +
+                        '</div>' +
+                        '</div>',
+                    latlng : new kakao.maps.LatLng(/*[[${address.latitude}]]*/, /*[[${address.longitude}]]*/)
+                },
+                /*[/]*/
+            ];
 
-            // 세 번째 마커와 인포윈도우
-            var marker3 = new kakao.maps.Marker({
-                position: new kakao.maps.LatLng(37.487086, 127.124170),
-                map: map
-            });
-            var infowindow3 = new kakao.maps.InfoWindow({
-                content : '<div style="padding:5px;">인공신장실</div>'
-            });
-            infowindow3.open(map, marker3);
+            for (var i = 0; i < positions.length; i ++) {
 
-            // 네 번째 마커와 인포윈도우
-            var marker4 = new kakao.maps.Marker({
-                position: new kakao.maps.LatLng(37.444656, 127.159228),
-                map: map
-            });
-            var infowindow4 = new kakao.maps.InfoWindow({
-                content : '<div style="padding:5px;">성남요양병원</div>'
-            });
-            infowindow4.open(map, marker4);
-
-            // 다섯번째 마커와 인포윈도우
-            var marker5 = new kakao.maps.Marker({
-                position: new kakao.maps.LatLng(37.410317, 127.125480),
-                map: map
-            });
-            var infowindow5 = new kakao.maps.InfoWindow({
-                content : '<div style="padding:5px;">차의과학대학교 분당 차병원</div>'
-            });
-            infowindow5.open(map, marker5);
-
-            // 6 마커와 인포윈도우
-            var marker6 = new kakao.maps.Marker({
-                position: new kakao.maps.LatLng(37.432375, 127.129514),
-                map: map
-            });
-            var infowindow6 = new kakao.maps.InfoWindow({
-                content : '<div style="padding:5px;">연세제일내과의원</div>'
-            });
-            infowindow6.open(map, marker6);
-
-            // 7 마커와 인포윈도우
-            var marker7 = new kakao.maps.Marker({
-                position: new kakao.maps.LatLng(37.416263, 127.120714),
-                map: map
-            });
-            var infowindow7 = new kakao.maps.InfoWindow({
-                content : '<div style="padding:5px;">분당연세요양병원</div>'
-            });
-            infowindow7.open(map, marker7);
-
-            // 8 마커와 인포윈도우
-            var marker8 = new kakao.maps.Marker({
-                position: new kakao.maps.LatLng(37.384273, 127.122776),
-                map: map
-            });
-            var infowindow8 = new kakao.maps.InfoWindow({
-                content : '<div style="padding:5px;">의료법인열린의료재단 분당열린의원</div>'
-            });
-            infowindow8.open(map, marker8);
-
-            // 9 마커와 인포윈도우
-            var marker9 = new kakao.maps.Marker({
-                position: new kakao.maps.LatLng(37.440802, 127.132263),
-                map: map
-            });
-            var infowindow9 = new kakao.maps.InfoWindow({
-                content : '<div style="padding:5px;">21C 프라자내과의원</div>'
-            });
-            infowindow9.open(map, marker9);
-
-            // 10 마커와 인포윈도우
-            var marker10 = new kakao.maps.Marker({
-                position: new kakao.maps.LatLng(37.350412, 127.109298),
-                map: map
-            });
-            var infowindow10 = new kakao.maps.InfoWindow({
-                content : '<div style="padding:5px;">서울탑내과의원</div>'
-            });
-            infowindow10.open(map, marker10);
-
-            // 11 마커와 인포윈도우
-            var marker11 = new kakao.maps.Marker({
-                position: new kakao.maps.LatLng(37.444274, 127.156407),
-                map: map
-            });
-            var infowindow11 = new kakao.maps.InfoWindow({
-                content : '<div style="padding:5px;">정든내과</div>'
-            });
-            infowindow11.open(map, marker11);
-
-            // 12 마커와 인포윈도우
-            var marker12 = new kakao.maps.Marker({
-                position: new kakao.maps.LatLng(37.398008, 127.112516),
-                map: map
-            });
-            var infowindow12 = new kakao.maps.InfoWindow({
-                content : '<div style="padding:5px;">메디피움의원</div>'
-            });
-            infowindow12.open(map, marker12)
-
-            // 13 마커와 인포윈도우
-            var marker13 = new kakao.maps.Marker({
-                position: new kakao.maps.LatLng(37.338869, 127.109299),
-                map: map
-            });
-            var infowindow13 = new kakao.maps.InfoWindow({
-                content : '<div style="padding:5px;">분당연세내과의원</div>'
-            });
-            infowindow13.open(map, marker13)
-
-            // 14 마커와 인포윈도우
-            var marker14 = new kakao.maps.Marker({
-                position: new kakao.maps.LatLng(37.388096, 127.121570),
-                map: map
-            });
-            var infowindow14 = new kakao.maps.InfoWindow({
-                content : '<div style="padding:5px;">분당제생병원</div>'
-            });
-            infowindow14.open(map, marker14)
-
-            // 15 마커와 인포윈도우
-            var marker15 = new kakao.maps.Marker({
-                position: new kakao.maps.LatLng(37.471846, 127.142626),
-                map: map
-            });
-            var infowindow15 = new kakao.maps.InfoWindow({
-                content : '<div style="padding:5px;">위례성모내과</div>'
-            });
-            infowindow15.open(map, marker15)
+                var marker = new kakao.maps.Marker({
+                    map: map,
+                    position: positions[i].latlng
+                });
 
 
+                var overlay = new kakao.maps.CustomOverlay({
+                    content : positions[i].content,
+                    map     : map,
+                    position: marker.getPosition()
+                });
 
+            }
+
+            // 마커를 클릭했을 때 커스텀 오버레이를 표시합니다
+            kakao.maps.event.addListener(marker, 'click', function () {
+                overlay.setMap(map);
+            });
+
+            // 커스텀 오버레이를 닫기 위해 호출되는 함수입니다
+            function closeOverlay() {
+                overlay.setMap(null);
+            }
+
+            /*]]>*/
         </script>
 </body>
 </html>
