@@ -36,6 +36,8 @@ public class Address {
     @Column(name = "closing_time")
     private LocalTime closingTime;
 
+    @Column(columnDefinition = "TEXT")
+    private String page;
 
 
 }

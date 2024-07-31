@@ -27,12 +27,12 @@ public class ServiceController {
         return "emergency";
     }
 
-    @GetMapping("/education-magazine")
+    @GetMapping("/magazine")
     public String educationmagazine() {
         return "education-magazine";
     }
 
-    @GetMapping("/education-video")
+    @GetMapping("/video")
     public String educationvideo() {
         return "education-video";
     }
@@ -42,5 +42,10 @@ public class ServiceController {
         List<Address> addressList = this.addressRepository.findAll();
         model.addAttribute("addressList", addressList);
         return "map";
+    }
+
+    @GetMapping("/diet")
+    public String diet() {
+        return "diet";
     }
 }

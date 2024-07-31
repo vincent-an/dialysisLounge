@@ -1,0 +1,73 @@
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>건강 레시피</title>
+    <link rel="stylesheet" href="/recipe.css">
+</head>
+<body>
+<div class="background">
+    <div class="mobile-container">
+        <div class="top-bar">
+            <div class="left-icons">
+                <a th:href="@{/service/diet/recipe}">
+                    <img src="/images/back-icon.png" alt="뒤로가기" class="back-icon">
+                </a>
+                <a th:href="@{/main}">
+                    <img src="/images/backhome-icon.png" alt="홈" class="backhome-icon">
+                </a>
+            </div>
+            <h1>건강 레시피</h1>
+            <div class="right-space"></div>
+        </div>
+        <div class="content-box">
+            <div class="recipe-text">
+                <div class="recipe-title">
+                    <img src="/images/cook-icon.png" alt="요리 아이콘">
+                    <h2>저염식 양념으로 만든 돼지고기 불고기 레시피</h2>
+                </div>
+                <div class="recipe-difficulty">
+                    <span>난이도</span>
+                    <img src="/images/1star-icon.png" alt="별1 아이콘">
+                    <img src="/images/1star-icon.png" alt="별1 아이콘">
+                    <img src="/images/1star-icon.png" alt="별1 아이콘">
+                </div>
+            </div>
+            <div class="image-box">
+                <img src="/images/recipe-img3.png" alt="레시피3 이미지" class="image">
+            </div>
+        </div>
+        <div class="banner">
+            <span class="banner-text">응급 상황에 필요한 가이드는 꼭 알아두세요!</span>
+            <button class="detail">
+                <span class="detail-text">자세히</span>
+            </button>
+        </div>
+        <div class="tabs">
+            <button class="tab inactive" onclick="window.location.href='/service/diet/recipe-m3'">재료</button>
+            <button class="tab active">조리 순서</button>
+        </div>
+        <div class="recipe-content">
+            <div class="step">
+                <div class="step-number">1</div>
+                <span class="cook-text">한돈 앞다릿살과 사태를 큼직하게 썰어 주물팬에 담아주세요.<br>토마토소스와 고추장, 마늘과 생강을 넣어주세요.</span>
+            </div>
+            <div class="step">
+                <div class="step-number">2</div>
+                <span class="cook-text">양파도 채썰어 넣어주세요. 육류에는 채소를 곁들이면 좋아요.</span>
+            </div>
+            <div class="step">
+                <div class="step-number">3</div>
+                <span class="cook-text">센불에서 저어주면서 익혀주세요.<br>(돼지고기는 완전히 익혀야 해요!)</span>
+            </div>
+            <div class="step">
+                <div class="step-number">4</div>
+                <span class="cook-text">완성! 맛있게 드세요!</span>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

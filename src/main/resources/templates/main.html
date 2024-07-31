@@ -28,8 +28,10 @@
             <div class="service-cards">
                 <button class="service-card diet-btn">
                     <div class="service-card-content">
+                        <div class="service-card-content" onclick="window.location.href='/service/diet'">
                         <h3>식사 관리</h3>
                         <p>투석 환자를 위한<br>영양 가이드와 레시피</p>
+                        </div>
                     </div>
                     <img src="/images/diet2-icon.png" alt="식사 관리 아이콘">
                 </button>
@@ -47,7 +49,7 @@
                     </div>
                     <img src="/images/lifestyle-icon.png" alt="생활관리법 아이콘">
                 </button>
-                <button class="service-card education-btn" onclick="window.location.href='/service/education-magazine'">
+                <button class="service-card education-btn" onclick="window.location.href='/service/magazine'">
                     <div class="service-card-content">
                         <h3>투석 요법<br>교육자료</h3>
                         <p>투석 요법<br>생활 관리 요령</p>
@@ -78,10 +80,10 @@
                     </a>
                 </li>
                 <li class="nav-item2">
-                    <a href="#"><img src="/images/diet-icon.png" alt="식단 아이콘">식단</a>
+                    <a th:href="@{/service/diet}"><img src="/images/diet-icon.png" alt="식단 아이콘">식단</a>
                 </li>
                 <li class="nav-item3">
-                    <a href="#"><img src="/images/education-icon.png" alt="교육 자료 아이콘">교육자료</a>
+                    <a th:href="@{/service/magazine}"><img src="/images/education-icon.png" alt="교육 자료 아이콘">교육자료</a>
                 </li>
             </ul>
             <button class="search-nearby" onclick="window.location.href='/service/map'">

@@ -1,0 +1,94 @@
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>건강레시피</title>
+    <link rel="stylesheet" href="/recipe.css">
+</head>
+<body>
+<div class="background">
+    <div class="mobile-container">
+        <div class="top-bar">
+            <div class="left-icons">
+                <a th:href="@{/service/diet/recipe}">
+                    <img src="/images/back-icon.png" alt="뒤로가기" class="back-icon">
+                </a>
+                <a th:href="@{/main}">
+                    <img src="/images/backhome-icon.png" alt="홈" class="backhome-icon">
+                </a>
+            </div>
+            <h1>건강 레시피</h1>
+            <div class="right-space"></div>
+        </div>
+        <div class="content-box">
+            <div class="recipe-text">
+                <div class="recipe-title">
+                    <img src="/images/cook-icon.png" alt="요리 아이콘">
+                    <h2>저염 두부계란국 레시피</h2>
+                </div>
+                <div class="recipe-difficulty">
+                    <span>난이도</span>
+                    <img src="/images/1star-icon.png" alt="별1 아이콘">
+                    <img src="/images/1star-icon.png" alt="별1 아이콘">
+                    <img src="/images/1star-icon.png" alt="별1 아이콘">
+                    <img src="/images/1star-icon.png" alt="별1 아이콘">
+                </div>
+            </div>
+            <div class="image-box">
+                <img src="/images/recipe-img4.png" alt="레시피4 이미지" class="image">
+            </div>
+        </div>
+        <div class="banner">
+            <span class="banner-text">응급 상황에 필요한 가이드는 꼭 알아두세요!</span>
+            <button class="detail">
+                <span class="detail-text">자세히</span>
+            </button>
+        </div>
+        <div class="tabs">
+            <button class="tab inactive" onclick="window.location.href='/service/diet/recipe-m4'">재료</button>
+            <button class="tab active">조리 순서</button>
+        </div>
+        <div class="recipe-content">
+            <div class="step">
+                <div class="step-number">1</div>
+                <span class="cook-text">멸치로 육수를 내어주세요.</span>
+            </div>
+            <div class="step">
+                <div class="step-number">2</div>
+                <span class="cook-text">육수가 끓는 동안 두부를 준비해주세요.<br>두부는 한 입 크기로 적당히 잘라 준비하시면 됩니다.</span>
+            </div>
+            <div class="step">
+                <div class="step-number">3</div>
+                <span class="cook-text">육수가 어느 정도 되었다 싶으면 멸치를 걸러낸 후<br>자른 두부를 넣어주세요.</span>
+            </div>
+            <div class="step">
+                <div class="step-number">4</div>
+                <span class="cook-text">불을 중불로 살짝 낮추고 계란을 풀어 원을 그리며 둘러주세요.</span>
+            </div>
+            <div class="step">
+                <div class="step-number">5</div>
+                <span class="cook-text">불을 중불로 낮춘 상태로 가만히 두면 두른 계란이<br>슬그머니 올라 올 겁니다.</span>
+            </div>
+            <div class="step">
+                <div class="step-number">6</div>
+                <span class="cook-text">계란이 올라오면 마늘 1작은스푼과 소금 1/2작은스푼을<br>넣고 다시 강불로 끓여주세요.</span>
+            </div>
+            <div class="step">
+                <div class="step-number">7</div>
+                <span class="cook-text">마지막으로 파를 넣어주시고 한 번 더 끓여주세요.</span>
+            </div>
+            <div class="step">
+                <div class="step-number">8</div>
+                <span class="cook-text">파까지 익은게 보이면 국그릇에 적당히 담으셔서 드시면<br>됩니다.</span>
+            </div>
+        </div>
+        <div class="tip-box">
+            <span class="tip">TIP!</span>
+            <span class="tip-text">두부를 순두부로 바꾸면 좀 더 부드럽게 드실 수 있습니다.</span>
+        </div>
+    </div>
+</div>
+</body>
+</html>

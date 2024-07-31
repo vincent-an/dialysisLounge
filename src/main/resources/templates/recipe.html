@@ -1,0 +1,66 @@
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>건강 레시피</title>
+    <link rel="stylesheet" href="/recipe.css">
+</head>
+<body>
+<div class="background">
+    <div class="mobile-container">
+        <div class="top-bar">
+            <div class="left-icons">
+                <a th:href="@{/service/diet}">
+                    <img src="/images/back-icon.png" alt="뒤로가기" class="back-icon">
+                </a>
+                <a th:href="@{/main}">
+                    <img src="/images/backhome-icon.png" alt="홈" class="backhome-icon">
+                </a>
+            </div>
+            <h1>건강 레시피</h1>
+            <div class="right-space"></div>
+        </div>
+        <div class="content-box">
+            <button class="recipe-1" onclick="window.location.href='/service/diet/recipe-m1'">
+                <img src="/images/recipe-icon1.png" alt="레시피1 아이콘">
+                <div class="text-content">
+                    <h2>저염 유부초밥 레시피</h2>
+                </div>
+            </button>
+            <button class="recipe-2" onclick="window.location.href='/service/diet/recipe-m2'">
+                <img src="/images/recipe-icon2.png" alt="레시피2 아이콘">
+                <div class="text-content">
+                    <h2>파인애플 비빔면 레시피</h2>
+                </div>
+            </button>
+            <button class="recipe-3"onclick="window.location.href='/service/diet/recipe-m3'">
+                <img src="/images/recipe-icon3.png" alt="레시피3 아이콘">
+                <div class="text-content">
+                    <h2>돼지고기 불고기 레시피</h2>
+                </div>
+            </button>
+            <button class="recipe-4" onclick="window.location.href='/service/diet/recipe-m4'">
+                <img src="/images/recipe-icon4.png" alt="레시피4 아이콘">
+                <div class="text-content">
+                    <h2>저염 두부계란국 레시피</h2>
+                </div>
+            </button>
+            <button class="recipe-5" onclick="window.location.href='/service/diet/recipe-m5'">
+                <img src="/images/recipe-icon5.png" alt="레시피5 아이콘">
+                <div class="text-content">
+                    <h2>저염 저칼륨 콩나물밥 레시피</h2>
+                </div>
+            </button>
+            <button class="recipe-6" onclick="window.location.href='/service/diet/recipe-m6'">
+                <img src="/images/recipe-icon6.png" alt="레시피6 아이콘">
+                <div class="text-content">
+                    <h2>저염 저칼륨 야채계란볶음밥 레시피</h2>
+                </div>
+            </button>
+        </div>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,80 @@
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>건강 레시피</title>
+    <link rel="stylesheet" href="/recipe.css">
+</head>
+<body>
+<div class="background">
+    <div class="mobile-container">
+        <div class="top-bar">
+            <div class="left-icons">
+                <a th:href="@{/service/diet/recipe}">
+                    <img src="/images/back-icon.png" alt="뒤로가기" class="back-icon">
+                </a>
+                <a th:href="@{/main}">
+                    <img src="/images/backhome-icon.png" alt="홈" class="backhome-icon">
+                </a>
+            </div>
+            <h1>건강 레시피</h1>
+            <div class="right-space"></div>
+        </div>
+        <div class="content-box">
+            <div class="recipe-text">
+                <div class="recipe-title">
+                    <img src="/images/cook-icon.png" alt="요리 아이콘">
+                    <h2>파인애플 비빔면 레시피</h2>
+                </div>
+                <div class="recipe-difficulty">
+                    <span>난이도</span>
+                    <img src="/images/1star-icon.png" alt="별1 아이콘">
+                    <img src="/images/1star-icon.png" alt="별1 아이콘">
+                </div>
+            </div>
+            <div class="image-box">
+                <img src="/images/recipe-img2.png" alt="레시피2 이미지" class="image">
+            </div>
+        </div>
+        <div class="banner">
+            <span class="banner-text">응급 상황에 필요한 가이드는 꼭 알아두세요!</span>
+            <button class="detail">
+                <span class="detail-text">자세히</span>
+            </button>
+        </div>
+        <div class="tabs">
+            <button class="tab inactive" onclick="window.location.href='/service/diet/recipe-m2'">재료</button>
+            <button class="tab active">조리 순서</button>
+        </div>
+        <div class="recipe-content">
+            <div class="step">
+                <div class="step-number">1</div>
+                <span class="cook-text">당근, 양파, 청피망, 홍피망을 길쭉하게 채썰어 준비한다.</span>
+            </div>
+            <div class="step">
+                <div class="step-number">2</div>
+                <span class="cook-text">모든 재료를 다진다.</span>
+            </div>
+            <div class="step">
+                <div class="step-number">3</div>
+                <span class="cook-text">다진 채소를 재료의 10배 물에 2시간 이상 담궈 염분을<br>제거한 후 건져 놓는다.</span>
+            </div>
+            <div class="step">
+                <div class="step-number">4</div>
+                <span class="cook-text">팬에 무염버터와 올리브유를 두르고 채소를 볶다가 밥을 넣고<br>함께 볶는다.</span>
+            </div>
+            <div class="step">
+                <div class="step-number">5</div>
+                <span class="cook-text">양념을 섞어 볶음밥에 넣기 직전에 뿌려 섭취한다.</span>
+            </div>
+        </div>
+        <div class="tip-box">
+            <span class="tip">TIP!</span>
+            <span class="tip-text">비빔 양념장 만들어 냉장고에 넣고 숙성시켜 만들면 감칠맛이 더<br>좋답니다.</span>
+        </div>
+    </div>
+</div>
+</body>
+</html>

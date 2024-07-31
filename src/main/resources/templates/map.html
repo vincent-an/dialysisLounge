@@ -6,110 +6,294 @@
     <title>지도</title>
     <link rel="stylesheet" href="/map.css">
     <style>
-        .wrap {position: absolute;left: 0;bottom: 40px;width: 288px;height: 132px;margin-left: -144px;text-align: left;overflow: hidden;font-size: 12px;font-family: 'Malgun Gothic', dotum, '돋움', sans-serif;line-height: 1.5;}
-        .wrap * {padding: 0;margin: 0;}
-        .wrap .info {width: 286px;height: 120px;border-radius: 5px;border-bottom: 2px solid #ccc;border-right: 1px solid #ccc;overflow: hidden;background: #fff;}
-        .wrap .info:nth-child(1) {border: 0;box-shadow: 0px 1px 2px #888;}
-        .info .title {padding: 5px 0 0 10px;height: 30px;background: #eee;border-bottom: 1px solid #ddd;font-size: 18px;font-weight: bold;}
-        .info .close {position: absolute;top: 10px;right: 10px;color: #888;width: 17px;height: 17px;background: url('https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/overlay_close.png');}
-        .info .close:hover {cursor: pointer;}
-        .info .body {position: relative;overflow: hidden;}
-        .info .desc {position: relative;margin: 13px 0 0 90px;height: 75px;}
-        .desc .ellipsis {overflow: hidden;text-overflow: ellipsis;white-space: nowrap;}
-        .desc .jibun {font-size: 11px;color: #888;margin-top: -2px;}
-        .info .img {position: absolute;top: 6px;left: 5px;width: 73px;height: 71px;border: 1px solid #ddd;color: #888;overflow: hidden;}
-        .info:after {content: '';position: absolute;margin-left: -12px;left: 50%;bottom: 0;width: 22px;height: 12px;background: url('https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/vertex_white.png')}
-        .info .link {color: #5085BB;}
+        /* 검색창 스타일 */
+        #search-box {
+            padding: 10px;
+            text-align: center;
+            background-color: white;
+            position: absolute;
+            top: 80px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 10;
+            width: 400px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+        #keyword {
+            width: 300px;
+            padding: 5px;
+        }
     </style>
 </head>
 <body>
 <div class="background">
     <div class="mobile-container">
-        <div class="search-tab-bar">
-            <button class="back-button">
+        <div class="top-bar">
+            <div class="left-icons">
                 <a th:href="@{/main}">
                     <img src="/images/back-icon.png" alt="뒤로가기" class="back-icon">
                 </a>
-            </button>
-            <input type="text" placeholder="    센터명을 검색하세요" class="search-bar">
-            <div class="search-keywords">
-                <button class="keyword-button1" id="open">영업중</button>
-                <button class="keyword-button2" id="night">심야센터</button>
-                <button class="keyword-button3" id="24-7">연중무휴</button>
+                <a th:href="@{/main}">
+                    <img src="/images/backhome-icon.png" alt="홈" class="backhome-icon">
+                </a>
             </div>
+            <h1>투석센터 찾기</h1>
+            <div class="right-space"></div>
         </div>
-        <div id="map" style="width:470px;height:400px;"></div>
+        <!-- 검색창 추가 -->
+        <div id="search-box">
+            <input type="text" id="keyword" placeholder="'지역 + 투석' 검색해보세요!">
+            <button onclick="searchPlaces()">검색</button>
+        </div>
+        <div id="map" style="width:100%;height:800px;"></div>
 
-        <script src="//dapi.kakao.com/v2/maps/sdk.js?appkey=88be0d96487f1858990fc2656f61eeff"></script>
-        <script th:inline="javascript">
-            var mapContainer = document.getElementById('map'), // 지도를 표시할 div
+        <script src="//dapi.kakao.com/v2/maps/sdk.js?appkey=88be0d96487f1858990fc2656f61eeff&libraries=services"></script>
+        <script>
+            var mapContainer = document.getElementById('map'),
                 mapOption = {
-                    center: new kakao.maps.LatLng(37.538376, 127.140488), // 지도의 중심좌표
-                    level: 8, // 지도의 확대 레벨
-                    mapTypeId : kakao.maps.MapTypeId.ROADMAP // 지도종류
+                    center: new kakao.maps.LatLng(37.496364, 127.069258),
+                    level: 7,
+                    mapTypeId: kakao.maps.MapTypeId.ROADMAP
                 };
 
-            // 지도를 생성한다
             var map = new kakao.maps.Map(mapContainer, mapOption);
 
-            /*<![CDATA[*/
-
             var positions = [
-                /*[# th:each="address : ${addressList}"]*/
                 {
-                    content: '<div class="wrap">' +
-                        '<div class="info">' +
-                        '<div class="title">' +
-                        '[(${address.hospitalName})]' +
-                        '<div class="close" onclick="closeOverlay()" title="닫기"></div>' +
-                        '</div>' +
-                        '<div class="body">' +
-                        '<div class="img">' +
-                        '<img src="/images/euhospital.png" width="73" height="70">' +
-                        '</div>' +
-                        '<div class="desc">' +
-                        '<div class="ellipsis">[(${address.address})]</div>' +
-                        '<div class="ellipsis">[(${address.dAddress})]</div>' +
-                        '                <div class="jibun ellipsis">' +
-                        '            [(${address.openingTime})]' +
-                        '~[(${address.closingTime})]까지 진료</div>' +
-                        '<div><a href="https://place.map.kakao.com/1537702311" target="_blank" class="link">상세정보</a></div>' +
-                        '</div>' +
-                        '</div>' +
-                        '</div>' +
-                        '</div>',
-                    latlng : new kakao.maps.LatLng(/*[[${address.latitude}]]*/, /*[[${address.longitude}]]*/)
+                    title: '연세더맑은내과',
+                    latlng: new kakao.maps.LatLng(37.498780, 127.034203),
+                    address: '테헤란로20길 10 (역삼동) 6층, 7층',
+                    imgSrc: '/images/h1.png',
+                    startTime: '09:30',
+                    endTime: '18:00',
+                    link: 'http://ysthepure.co.kr/'
                 },
-                /*[/]*/
+                {
+                    title: '강남세브란스병원',
+                    latlng: new kakao.maps.LatLng(37.492825, 127.047005),
+                    address: '강남구 언주로 211 신장내과',
+                    imgSrc: '/images/h2.png',
+                    startTime: '08:30',
+                    endTime: '17:30',
+                    link: 'https://gs.severance.healthcare/gs/index.do'
+                },
+                {
+                    title: '윤영석내과의원',
+                    latlng: new kakao.maps.LatLng(37.490522, 127.055862),
+                    address: '남부순환로 2912 그랑프리N 305호',
+                    imgSrc: '/images/h3.png',
+                    startTime: '09:00',
+                    endTime: '18:30',
+                    link: 'http://www.dr-kidney.co.kr/'
+                },
+                {
+                    title: '미래아이엔지 조병수의원',
+                    latlng: new kakao.maps.LatLng(37.524653, 127.048334),
+                    address: '강남구 도산대로 509 6층',
+                    imgSrc: '/images/h4.png',
+                    startTime: '09:00',
+                    endTime: '17:30',
+                    link: 'https://place.map.kakao.com/20032220'
+                },
+                {
+                    title: '삼성윤내과의원',
+                    latlng: new kakao.maps.LatLng(37.488380, 127.103986),
+                    address: '광평로 295 사이룩스오피스텔 서관 2층',
+                    imgSrc: '/images/h5.png',
+                    startTime: '10:00',
+                    endTime: '18:00',
+                    link: 'http://www.samsungyoon.com/'
+                },
+                {
+                    title: '연세한마음내과의원',
+                    latlng: new kakao.maps.LatLng(37.538376, 127.140488),
+                    address: '서울 강동구 양재대로 1486 정남빌딩',
+                    imgSrc: '/images/h6.png',
+                    startTime: '09:00',
+                    endTime: '17:30',
+                    link: 'https://ys1heart.modoo.at/'
+                },
+                {
+                    title: '삼성서울병원',
+                    latlng: new kakao.maps.LatLng(37.488992, 127.085525),
+                    address: '서울 강남구 일원로 81',
+                    imgSrc: '/images/h7.png',
+                    startTime: '08:00',
+                    endTime: '18:00(주말 12시)',
+                    link: 'www.samsunghospital.com'
+                },
+                {
+                    title: '조병수의원',
+                    latlng: new kakao.maps.LatLng(37.524689, 127.048524),
+                    address: '서울 강남구 도산대로 507 대신빌딩 3층',
+                    imgSrc: '/images/h8.png',
+                    startTime: '09:00',
+                    endTime: '17:30',
+                    link: 'http://www.xn--zv4b80g.com/'
+                },
+                {
+                    title: '강남열린의원',
+                    latlng: new kakao.maps.LatLng(37.497677, 127.068689),
+                    address: '서울특별시 강남구 영동대로 211 영광빌딩3층',
+                    imgSrc: '/images/h9.png',
+                    startTime: '09:00',
+                    endTime: '18:00',
+                    link: 'https://www.ymf-gn.co.kr/kor/main/'
+                },
+                {
+                    title: '세실내과의원',
+                    latlng: new kakao.maps.LatLng(37.528107, 127.031837),
+                    address: '서울특별시 강남구 언주로 173길 20',
+                    imgSrc: '/images/h10.png',
+                    startTime: '08:30',
+                    endTime: '18:00',
+                    link: 'https://place.map.kakao.com/25612677'
+                },
+                {
+                    title: '이정익내과의원',
+                    latlng: new kakao.maps.LatLng(37.51144, 127.086096),
+                    address: '서울특별시 송파구 석촌호수로 61 트리지움상가 5층',
+                    imgSrc: '/images/h11.png',
+                    startTime: '09:00',
+                    endTime: '18:00',
+                    link: 'https://place.map.kakao.com/8056333"'
+                },
             ];
 
-            for (var i = 0; i < positions.length; i ++) {
+            var markers = [];
+            var overlays = [];
+            var infowindow = new kakao.maps.InfoWindow({zIndex: 1});
 
+            for (var i = 0; i < positions.length; i++) {
                 var marker = new kakao.maps.Marker({
                     map: map,
                     position: positions[i].latlng
                 });
 
+                markers.push(marker);
+
+                markers.push(marker);
+
+                var content = '<div class="wrap">' +
+                    '    <div class="info">' +
+                    '        <div class="title">' +
+                    positions[i].title +
+                    '            <div class="close" onclick="closeOverlay(' + i + ')" title="닫기"></div>' +
+                    '        </div>' +
+                    '        <div class="body">' +
+                    '            <div class="img">' +
+                    '                <img src="' + positions[i].imgSrc + '" width="73" height="70">' +
+                    '           </div>' +
+                    '            <div class="desc">' +
+                    '                <div class="ellipsis">' + positions[i].address + '</div>' +
+                    '                <div class="jibun ellipsis">' + positions[i].startTime + '에 진료 시작</div>' +
+                    '                <div class="jibun ellipsis">' + positions[i].endTime + '에 진료 종료</div>' +
+                    '                <div><a href="' + positions[i].link + '" target="_blank" class="link">상세정보</a></div>' +
+                    '            </div>' +
+                    '        </div>' +
+                    '    </div>' +
+                    '</div>';
 
                 var overlay = new kakao.maps.CustomOverlay({
-                    content : positions[i].content,
-                    map     : map,
+                    content: content,
+                    map: map,
                     position: marker.getPosition()
                 });
 
-            }
-
-            // 마커를 클릭했을 때 커스텀 오버레이를 표시합니다
-            kakao.maps.event.addListener(marker, 'click', function () {
-                overlay.setMap(map);
-            });
-
-            // 커스텀 오버레이를 닫기 위해 호출되는 함수입니다
-            function closeOverlay() {
                 overlay.setMap(null);
+                overlays.push(overlay);
+                (function(marker, overlay) {
+                    kakao.maps.event.addListener(marker, 'click', function() {
+                        closeAllOverlays();
+                        overlay.setMap(map);
+                        map.setCenter(marker.getPosition()); // 마커 클릭 시 지도 중심 이동
+                    });
+                })(marker, overlay);
             }
 
-            /*]]>*/
+            function closeAllOverlays() {
+                for (var i = 0; i < overlays.length; i++) {
+                    overlays[i].setMap(null);
+                }
+            }
+
+            function closeOverlay(index) {
+                overlays[index].setMap(null);
+            }
+
+            // 장소 검색 기능 구현
+            var ps = new kakao.maps.services.Places();
+
+            function searchPlaces() {
+                var keyword = document.getElementById('keyword').value;
+
+                if (!keyword.replace(/^\s+|\s+$/g, '')) {
+                    alert('키워드를 입력해주세요!');
+                    return false;
+                }
+
+                ps.keywordSearch(keyword, placesSearchCB);
+            }
+
+            function placesSearchCB(data, status, pagination) {
+                if (status === kakao.maps.services.Status.OK) {
+                    // 검색 결과 목록이나 마커를 처리합니다.
+                    displayPlaces(data);
+                } else if (status === kakao.maps.services.Status.ZERO_RESULT) {
+                    alert('검색 결과가 존재하지 않습니다.');
+                    return;
+                } else if (status === kakao.maps.services.Status.ERROR) {
+                    alert('검색 중 오류가 발생했습니다.');
+                    return;
+                }
+            }
+
+            function displayPlaces(places) {
+                var bounds = new kakao.maps.LatLngBounds();
+
+                // 기존 마커 제거
+                removeMarker();
+
+                for (var i = 0; i < places.length; i++) {
+                    var placePosition = new kakao.maps.LatLng(places[i].y, places[i].x),
+                        marker = addMarker(placePosition);
+
+                    bounds.extend(placePosition);
+
+                    // 마커와 검색 결과 항목에 클릭 이벤트를 등록합니다
+                    (function(marker, title) {
+                        kakao.maps.event.addListener(marker, 'mouseover', function() {
+                            infowindow.setContent('<div style="padding:5px;z-index:1;">' + title + '</div>');
+                            infowindow.open(map, marker);
+                        });
+
+                        kakao.maps.event.addListener(marker, 'mouseout', function() {
+                            infowindow.close();
+                        });
+                    })(marker, places[i].place_name);
+                }
+
+                // 검색된 장소 위치를 기준으로 지도 범위를 재설정합니다
+                map.setBounds(bounds);
+            }
+
+            function addMarker(position) {
+                var marker = new kakao.maps.Marker({
+                    position: position
+                });
+
+                marker.setMap(map);
+                markers.push(marker);
+
+                return marker;
+            }
+
+            function removeMarker() {
+                for (var i = 0; i < markers.length; i++) {
+                    markers[i].setMap(null);
+                }
+                markers = [];
+            }
         </script>
 </body>
 </html>

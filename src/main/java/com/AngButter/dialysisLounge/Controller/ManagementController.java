@@ -47,24 +47,4 @@ public class ManagementController {
     public String weight() {
         return "weight";
     }
-
-    @GetMapping("/education-magazine1")
-    public String educationmagazine1() {
-        return "education-magazine1";
-    }
-
-    @GetMapping("/education-magazine2")
-    public String educationmagazine2() {
-        return "education-magazine2";
-    }
-
-    @GetMapping("/education-magazine3")
-    public String educationmagazine3() {
-        return "education-magazine3";
-    }
-
-    @GetMapping("/education-magazine4")
-    public String educationmagazine4() {
-        return "education-magazine4";
-    }
 }

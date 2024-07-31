@@ -1,0 +1,67 @@
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>건강 레시피</title>
+    <link rel="stylesheet" href="/recipe.css">
+</head>
+<body>
+<div class="background">
+    <div class="mobile-container">
+        <div class="top-bar">
+            <div class="left-icons">
+                <a th:href="@{/service/diet/recipe}">
+                    <img src="/images/back-icon.png" alt="뒤로가기" class="back-icon">
+                </a>
+                <a th:href="@{/main}">
+                    <img src="/images/backhome-icon.png" alt="홈" class="backhome-icon">
+                </a>
+            </div>
+            <h1>건강 레시피</h1>
+            <div class="right-space"></div>
+        </div>
+        <div class="content-box">
+            <div class="recipe-text">
+                <div class="recipe-title">
+                    <img src="/images/cook-icon.png" alt="요리 아이콘">
+                    <h2>저염 저칼륨 야채계란볶음밥 레시피</h2>
+                </div>
+                <div class="recipe-difficulty">
+                    <span>난이도</span>
+                    <img src="/images/1star-icon.png" alt="별1 아이콘">
+                    <img src="/images/1star-icon.png" alt="별1 아이콘">
+                </div>
+            </div>
+            <div class="image-box">
+                <img src="/images/recipe-img6.png" alt="레시피6 이미지" class="image">
+            </div>
+        </div>
+        <div class="banner">
+            <span class="banner-text">응급 상황에 필요한 가이드는 꼭 알아두세요!</span>
+            <button class="detail">
+                <span class="detail-text">자세히</span>
+            </button>
+        </div>
+        <div class="tabs">
+            <button class="tab active">재료</button>
+            <button class="tab inactive" onclick="window.location.href='/service/diet/recipe-c6'">조리 순서</button>
+        </div>
+        <div class="recipe-content">
+            <span class="content-text">기본 재료 (1인분)</span>
+            <div class="ingredient-boxes">
+                <div class="ingredient-box">냉동 야채믹스 적당량</div>
+                <div class="ingredient-box">밥 1인분</div>
+                <div class="ingredient-box">기름 적당량</div>
+            </div>
+            <span class="content-text">양념</span>
+            <div class="ingredient-boxes">
+                <div class="ingredient-box">계란 1개</div>
+                <div class="ingredient-box">굴소스 1작은술</div>
+                <div class="ingredient-box">파 약간</div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

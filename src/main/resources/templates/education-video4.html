@@ -1,0 +1,45 @@
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>교육 자료</title>
+    <link rel="stylesheet" href="education-video.css">
+</head>
+<body>
+<div class="background">
+    <div class="mobile-container">
+        <div class="top-bar">
+            <div class="left-icons">
+                <a th:href="@{/service/education-video}">
+                    <img src="images/back-icon.png" alt="뒤로가기" class="back-icon">
+                </a>
+                <a th:href="@{/main}">
+                    <img src="images/backhome-icon.png" alt="홈" class="backhome-icon">
+                </a>
+            </div>
+            <h1>동영상</h1>
+            <div class="right-space"></div>
+        </div>
+        <div class="content-box">
+            <div class="video-container">
+                <iframe width="462px" height="315" src="https://www.youtube.com/embed/DJOlEkJDkOw?si=h8Xx-L_kf8cYf1_N" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+            <div class="lounge-data">
+                <span class="lounge-data-largetext">lounge DATA</span>
+                <span class="lounge-data-smalltext">투석에 관한 모든 정보를 알려드려요</span>
+            </div>
+            <div class="content">
+                <div class="content-header">
+                    <img src="images/magazine-content-icon.png" alt="매거진 내용 아이콘" class="magazine-content-icon">
+                    <h2>만성 콩팥병 환자들, 식단 이렇게만 드세요!</h2>
+                </div>
+                <span class="content-text">만성 콩팥병 극복하는 식습관! (대한신장학회)<br>
+                    출처: Youtube 내 신장이콩팥콩팥</span>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

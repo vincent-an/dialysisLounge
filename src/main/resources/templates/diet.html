@@ -1,0 +1,125 @@
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>식사 관리</title>
+    <link rel="stylesheet" href="/diet.css">
+</head>
+<body>
+<div class="background">
+    <div class="mobile-container">
+        <div class="top-bar">
+            <a th:href="@{/main}">
+            <img src="/images/back-icon.png" alt="뒤로가기" class="back-icon">
+            </a>
+            <h1>식사 관리</h1>
+            <img src="/images/lounge-logo2.png" alt="투석라운지 로고" class="lounge-logo2">
+        </div>
+        <button class="banner">
+            <img src="/images/dietedu-icon.png" alt="교육자료 아이콘" class="dietedu-icon">
+            <span class="banner-text">투석에 대한 이해가 필요하신가요?</span>
+        </button>
+        <div class="diet-recipe-box">
+            <img src="/images/dietrec-icon.png" alt="레시피 아이콘" class="dietrec-icon">
+            <div class="recipe-count">6개의 레시피</div>
+            <div class="recipe-info">
+                <h2 class="recipe-title">건강 레시피</h2>
+                <button class="recipe-button" onclick="window.location.href='/service/diet/recipe'">레시피 보기</button>
+                <p class="recipe-text1">투석 시 식사관리, 어떻게 준비해야 할까요?</p>
+                <p class="recipe-text2">라운지가 제공하는 <b>최적</b>의 조리법!🍚🍴</p>
+            </div>
+        </div>
+        <div class="diet-recommendation-box">
+            <img src="/images/dietdate-icon.png" alt="일일 식단 아이콘" class="dietdate-icon">
+            <div class="diet-date">24.08.06</div>
+            <div class="diet-info">
+                <h2 class="diet-title">일일 식단 추천</h2>
+                <p class="diet-text1">투석 시 식사관리, 전문적인 영양 설계로 추천해드릴게요.</p>
+                <div class="diet-time">아침 식사</div>
+                <div class="diet-images">
+                    <div class="diet-item">
+                        <img src="/images/diet-img1.png" alt="저지방 우유 한 잔" class="diet-img">
+                        <p class="diet-text2">저지방우유 한 잔</p>
+                    </div>
+                    <div class="diet-item">
+                        <img src="/images/diet-img2.png" alt="달걀 흰자 오믈렛" class="diet-img">
+                        <p class="diet-text2">달걀 흰자 오믈렛</p>
+                    </div>
+                    <div class="diet-item">
+                        <img src="/images/diet-img3.png" alt="흰 빵 한 조각" class="diet-img">
+                        <p class="diet-text2">흰 빵 한 조각</p>
+                    </div>
+                    <div class="diet-item">
+                        <img src="/images/diet-img4.png" alt="사과 반쪽" class="diet-img">
+                        <p class="diet-text2">사과 반쪽</p>
+                    </div>
+                </div>
+                <div class="diet-time">점심 식사</div>
+                <div class="diet-images">
+                    <div class="diet-item">
+                        <img src="/images/diet-img5.png" alt="구운 닭가슴살" class="diet-img">
+                        <p class="diet-text2">구운 닭가슴살</p>
+                    </div>
+                    <div class="diet-item">
+                        <img src="/images/diet-img6.png" alt="브로콜리 스팀" class="diet-img">
+                        <p class="diet-text2">브로콜리 스팀</p>
+                    </div>
+                    <div class="diet-item">
+                        <img src="/images/diet-img7.png" alt="흰 쌀밥 한 공기" class="diet-img">
+                        <p class="diet-text2">흰 쌀밥 한 공기</p>
+                    </div>
+                    <div class="diet-item">
+                        <img src="/images/diet-img8.png" alt="베리 샐러드" class="diet-img">
+                        <p class="diet-text2">베리 샐러드</p>
+                    </div>
+                </div>
+                <div class="diet-time">저녁 식사</div>
+                <div class="diet-images">
+                    <div class="diet-item">
+                        <img src="/images/diet-img9.png" alt="저염 두부계란국" class="diet-img">
+                        <p class="diet-text2">저염 두부계란국</p>
+                    </div>
+                    <div class="diet-item">
+                        <img src="/images/diet-img10.png" alt="야채계란볶음밥" class="diet-img">
+                        <p class="diet-text2">야채계란볶음밥</p>
+                    </div>
+                    <div class="diet-item">
+                        <img src="/images/diet-img11.png" alt="생선구이" class="diet-img">
+                        <p class="diet-text2">생선구이</p>
+                    </div>
+                    <div class="diet-item">
+                        <img src="/images/diet-img12.png" alt="녹색 채소 샐러드" class="diet-img">
+                        <p class="diet-text2">녹색 채소 샐러드</p>
+                    </div>
+                </div>
+                <div class="banner2">
+                    <span class="banner-text2">내일의 일일식단도 기대해주세요!</span>
+                </div>
+            </div>
+        </div>
+        <div class="content">
+            <div class="content-header">
+                <img src="/images/diettip-icon.png" alt="식단TIP 아이콘" class="diet-tip-icon">
+                <h2>투석 시 식사관리 TIP!</h2>
+            </div>
+            <span class="content-text"><b>투석 환자의 기본적인 식사 원칙은 '적절한 에너지, 단백질, 비타민, 무기질을 섭취하여 좋은 영양상태를 유지하는 것'이에요.</b></span>
+            <div class="content-header2">
+                <span class="content-color-text"> 1. 적절한 단백질 섭취</span>
+                <span class="content-text">단백질 섭취량의 50% 이상은 계란, 고기, 생선, 우유 등 <u>생물가가 높은 동물성 식품</u>으로 섭취하세요.</span>
+                <span class="content-color-text"> 2. 충분한 열량 섭취</span>
+                <span class="content-text">단백질 섭취량은 조절하면서 <u>탄수화물과 지방으로 충분한 열량</u>을 섭취하세요.</span>
+                <span class="content-color-text"> 3. 염분 제한</span>
+                <span class="content-text">과량의 수분 섭취와 체중증가를 막기 위해 염분을 <u>1일 5g (나트륨 2,000mg) 이하로 제한</u>하세요.</span>
+                <span class="content-color-text"> 4. 수분 섭취 제한</span>
+                <span class="content-text">수분 균형을 유지하도록 <u>물은 갈증을 해소할 정도로만</u> 한 모금씩 마시고, 허용된 양의 과일을 차갑게 먹거나 얼려 드세요.</span>
+                <span class="content-color-text"> 5. 칼륨 섭취 제한</span>
+                <span class="content-text">채소는 껍질을 벗기고, 채를 썰거나 잘게 토막 내어 물에 2시간 이상 담근 후 헹구어 활용하세요. <u>물에 데치거나 끓인 후</u> 물을 버리고 조리해주세요.</span>
+                <span class="content-color-text"> 6. 인 섭취 제한</span>
+                <span class="content-text">인은 고기, 계란, 우유, 콩류 등 단백질 급원에 많이 들어있으므로 <u>허용된 양만 섭취</u>하고, 잡곡류가 아닌 쌀밥 위주로 섭취하세요.</span>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
