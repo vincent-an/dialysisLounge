@@ -5,19 +5,27 @@
 <!--    <div class="mobile-container">-->
 <table class="table">
     <thead class="table-light">
-    <tr>
-        <th>번호</th>
-        <th>제목</th>
-        <th>작성일시</th>
-    </tr>
+<!--    <tr>-->
+<!--        <th>번호</th>-->
+<!--        <th>제목</th>-->
+<!--        <th>작성일시</th>-->
+<!--    </tr>-->
     </thead>
     <tbody>
     <tr th:each="question, loop : ${paging}">
-        <td th:text="${loop.count}"></td>
         <td>
-            <a th:href="@{|/question/detail/${question.id}|}" th:text="${question.subject}"></a>
+            <div class="post-container">
+                <!-- 게시글 개수 -->
+                <div class="post-count">
+                    <span th:text="'게시글 ' + (${paging.getTotalElements - (paging.number * paging.size) - loop.index})"></span>
+                </div>
+
+                <!-- 글 제목 -->
+                <a th:href="@{|/question/detail/${question.id}|}" th:text="${question.subject}" class="post-title"></a>
+                <!-- 작성일자 -->
+                <span th:text="${#temporals.format(question.createDate, 'yyyy-MM-dd HH-mm')}" class="post-date"></span>
+            </div>
         </td>
-        <td th:text="${#temporals.format(question.createDate, 'yyyy-MM-dd HH-mm')}"></td>
     </tr>
     </tbody>
 </table>
@@ -47,7 +55,9 @@
 </div>
 <!-- 페이징처리 끝 -->
 <!--        부트스트립 사용시 버튼이 화면 전체크기로 나옴. 일반 button 과 css 사용하여 변경 생각 중-->
-    <a th:href="@{/question/create}" class="btn btn-primary btn-submit">글쓰기</a>
+<a th:href="@{/question/create}" class="write-btn"></a>
+
+
 <!--    </div>-->
 <!--</div>-->
 </body>
