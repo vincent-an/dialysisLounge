@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>커뮤니티</title>
-    <link rel="stylesheet" href="/community-detail.css">
+    <link rel="stylesheet" href="/community-form.css">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" th:href="@{/bootstrap.min.css}">
 </head>
@@ -14,31 +14,32 @@
         <div class="top-bar">
             <div class="left-icons">
                 <a th:href="@{/question/list}">
-                    <img src="/images/back-icon.png" alt="뒤로가기" class="back-icon">
+                    <img src="/images/back-icon2.png" alt="뒤로가기" class="back-icon">
                 </a>
                 <a th:href="@{/main}">
-                    <img src="/images/backhome-icon.png" alt="홈" class="backhome-icon">
+                    <img src="/images/backhome-icon2.png" alt="홈" class="backhome-icon">
                 </a>
             </div>
-            <h1>커뮤니티</h1>
+            <h1>글쓰기</h1>
             <div class="right-space"></div>
         </div>
         <div class="content">
             <div class="mobile-container">
-                <h5 class="my-3 border-bottom pb-2">질문등록</h5>
+                <h5 class="title-text">커뮤니티 글 등록</h5>
+                <h5 class="title-text2">투석에 대한 모든 것을 질문해보세요. 경험을 공유하세요!</h5>
                 <!--        입력한 내용을 /question/create URL로 post방식으로 전소ㅇ하기 위한 form, btn추가-->
                 <form th:action="@{/question/create}" th:object="${questionForm}" method="post">
                     <!--            검증 실패시 오류 메시지 출력-->
                     <div th:replace="~{form_errors :: formErrorsFragment}"></div>
                     <div class="mb-3">
-                        <label for="subject" class="form-label">제목</label>
-                        <input type="text" th:field="*{subject}" class="form-control">
+                        <!--                        <label for="subject" class="form-title">제목</label>-->
+                        <input type="text" th:field="*{subject}" class="form-control" placeholder="  제목">
                     </div>
                     <div class="mb-3">
-                        <label for="content" class="form-label">내용</label>
-                        <textarea th:field="*{content}" class="form-control" rows="10"></textarea>
+                        <!--                        <label for="content" class="form-content">내용</label>-->
+                        <textarea th:field="*{content}" class="form-control" placeholder="  내용을 입력하세요."rows="10"></textarea>
                     </div>
-                    <input type="submit" value="저장하기" class="btn btn-primary my-2">
+                    <input type="submit" value="글쓰기" class="btn btn-primary my-2 answer-button">
                 </form>
             </div>
         </div>
