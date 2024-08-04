@@ -24,7 +24,7 @@ public class QuestionService {
         //page : 조회할 페이지 번호, 10 : 한 페이지에 보여줄 개수를 의미
         List<Sort.Order> sorts = new ArrayList<>();
         sorts.add(Sort.Order.desc("createDate"));
-        Pageable pageable = PageRequest.of(page, 10, Sort.by(sorts));
+        Pageable pageable = PageRequest.of(page, 4, Sort.by(sorts));
         return this.questionRepository.findAll(pageable);
     }
 

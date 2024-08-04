@@ -105,7 +105,7 @@ body {
     font-size: 20px;
     cursor: pointer;
     text-align: center;
-    font-family: 'Pretendard', sans-serif;
+    font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
 }
 
 .find-center-btn .search-icon {
@@ -164,14 +164,14 @@ body {
     font-size: 20px;
     font-weight: 650;
     margin: 0;
-    font-family: 'Pretendard', sans-serif;
+    font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
 }
 
 .service-card p {
     font-size: 13px;
     color: #919191;
     margin: 10px 0 0 0;
-    font-family: 'Pretendard', sans-serif;
+    font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
 }
 
 .additional-banners {
@@ -191,7 +191,7 @@ body {
 
 .additional-banner1 .banner-text {
     color: #ffffff;
-    font-family: 'Pretendard', sans-serif;
+    font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
     font-weight: 600;
     font-size: 16px;
     line-height: 1.5;
@@ -214,7 +214,7 @@ body {
 
 .additional-banner2 .banner-text .highlight {
     color: #DC7143;
-    font-family: 'Pretendard', sans-serif;
+    font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
     font-weight: 600;
     font-size: 16px;
     line-height: 1.5;
@@ -226,7 +226,7 @@ body {
 
 .additional-banner2 .banner-text .highlight2 {
     color: #000000;
-    font-family: 'Pretendard', sans-serif;
+    font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
     font-weight: 600;
     font-size: 16px;
     line-height: 1.5;
@@ -249,7 +249,7 @@ body {
 
 .additional-banner3 .banner-text .highlight3 {
     color: #28467E;
-    font-family: 'Pretendard', sans-serif;
+    font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
     font-weight: 600;
     font-size: 16px;
     line-height: 1.5;
@@ -261,7 +261,7 @@ body {
 
 .additional-banner3 .banner-text .highlight4 {
     color: #2175E3;
-    font-family: 'Pretendard', sans-serif;
+    font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
     font-weight: 600;
     font-size: 16px;
     line-height: 1.5;
@@ -352,7 +352,7 @@ button.search-nearby {
 .search-nearby .search-nearby-text .small-text {
     font-size: 15px;
     margin-top: 15px;
-    font-family: 'Pretendard', sans-serif;
+    font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
 }
 
 .search-nearby .search-nearby-text .large-text {
