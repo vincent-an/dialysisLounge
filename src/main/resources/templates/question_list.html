@@ -1,64 +1,44 @@
-<!--layout:decorate 속성은 템플릿의 레이아웃(부모템플릿)으로 사용할 템플릿을 설정한다.-->
 <html layout:decorate="~{layout}">
 <body layout:fragment="content">
-<!--<div class="background">-->
-<!--    <div class="mobile-container">-->
 <table class="table">
     <thead class="table-light">
-<!--    <tr>-->
-<!--        <th>번호</th>-->
-<!--        <th>제목</th>-->
-<!--        <th>작성일시</th>-->
-<!--    </tr>-->
     </thead>
     <tbody>
     <tr th:each="question, loop : ${paging}">
         <td>
             <div class="post-container">
-                <!-- 게시글 개수 -->
                 <div class="post-count">
                     <span th:text="'게시글 ' + (${paging.getTotalElements - (paging.number * paging.size) - loop.index})"></span>
                 </div>
-
-                <!-- 글 제목 -->
                 <a th:href="@{|/question/detail/${question.id}|}" th:text="${question.subject}" class="post-title"></a>
-                <!-- 작성일자 -->
                 <span th:text="${#temporals.format(question.createDate, 'yyyy-MM-dd HH-mm')}" class="post-date"></span>
             </div>
         </td>
     </tr>
     </tbody>
 </table>
-<!-- 페이징처리 시작 -->
 <div th:if="${!paging.isEmpty()}">
-<!--   부트 스트랩 페이지네이션 사용 -->
-    <ul class="pagination justify-content-center">
-<!--        item은 버튼 구현, link는 링크 구현-->
-        <li class="page-item" th:classappend="${!paging.hasPrevious} ? 'disabled'">
-            <a class="page-link"
-               th:href="@{|?page=${paging.number-1}|}">
-                <span>이전</span>
-            </a>
-        </li>
-        <li th:each="page: ${#numbers.sequence(0, paging.totalPages-1)}"
-            th:if="${page >= paging.number-1 and page <= paging.number+1}"
-            th:classappend="${page == paging.number} ? 'active'"
-            class="page-item">
-            <a th:text="${page}" class="page-link" th:href="@{|?page=${page}|}"></a>
-        </li>
-        <li class="page-item" th:classappend="${!paging.hasNext} ? 'disabled'">
-            <a class="page-link" th:href="@{|?page=${paging.number+1}|}">
-                <span>다음</span>
-            </a>
-        </li>
-    </ul>
+    <div class="pagination-container">
+        <ul class="pagination justify-content-center">
+            <li class="page-item" th:classappend="${!paging.hasPrevious} ? 'disabled'">
+                <a class="page-link" th:href="@{|?page=${paging.number-1}|}">
+                    <span>이전</span>
+                </a>
+            </li>
+            <li th:each="page: ${#numbers.sequence(0, paging.totalPages-1)}"
+                th:if="${page >= paging.number-1 and page <= paging.number+1}"
+                th:classappend="${page == paging.number} ? 'active'"
+                class="page-item">
+                <a th:text="${page}" class="page-link" th:href="@{|?page=${page}|}"></a>
+            </li>
+            <li class="page-item" th:classappend="${!paging.hasNext} ? 'disabled'">
+                <a class="page-link" th:href="@{|?page=${paging.number+1}|}">
+                    <span>다음</span>
+                </a>
+            </li>
+        </ul>
+        <a th:href="@{/question/create}" class="write-btn"></a>
+    </div>
 </div>
-<!-- 페이징처리 끝 -->
-<!--        부트스트립 사용시 버튼이 화면 전체크기로 나옴. 일반 button 과 css 사용하여 변경 생각 중-->
-<a th:href="@{/question/create}" class="write-btn"></a>
-
-
-<!--    </div>-->
-<!--</div>-->
 </body>
 </html>

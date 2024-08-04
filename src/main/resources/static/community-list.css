@@ -83,9 +83,9 @@ body {
     margin-top: 120px;
 }
 
-.container-fluid {
-    background-color: white;
-}
+/*.container-fluid {*/
+/*    background-color: white;*/
+/*}*/
 
 .lounge-logo2 {
     margin-right: 10px;
@@ -148,34 +148,65 @@ tbody {
     font-size: 0.9em; /* 글자 크기 조절 */
 }
 
-/* 고정된 이미지 버튼 스타일 */
-/*.btn-write {*/
-/*    display: inline-block;*/
-/*    width: 69px;*/
-/*    height: 69px;*/
-/*    background-size: cover;*/
-/*    background-position: center;*/
-/*    border: none; !* 버튼 테두리 제거 *!*/
-/*    position: fixed;*/
-/*    bottom: 102px;*/
-/*    left: 20px;*/
-/*    z-index: 1000; !* 다른 요소 위에 표시되도록 설정 *!*/
-/*    text-indent: -9999px; !* 텍스트 숨기기 *!*/
-/*}*/
-
 /* 사용자 정의 이미지 버튼 스타일 */
 .write-btn {
     position: absolute; /* 뷰포트 기준으로 절대 위치 설정 */
-    width: 69px;
-    height: 69px;
+    width: 60px;
+    height: 60px;
     background-image: url('/images/write.png'); /* 이미지 경로 설정 */
     background-size: cover;
     background-position: center;
-    bottom: 102px; /* 뷰포트 하단에서 102px 위 */
+    bottom: 70px; /* 뷰포트 하단에서 102px 위 */
     right: 20px; /* 뷰포트 오른쪽에서 20px 떨어진 위치 */
     border: none; /* 테두리 제거 */
     cursor: pointer; /* 포인터 커서로 설정 */
     text-indent: -9999px; /* 텍스트 숨기기 */
     overflow: hidden;
     z-index: 10; /* 다른 요소보다 위에 표시 */
+}
+
+.pagination .page-item .page-link {
+    font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+    border-radius: 20px; /* 타원형 모양 */
+    margin: 70px 10px;
+    padding: 5px 15px;
+    border: 1px solid #00B2FF;
+    color: #00B2FF;
+    text-decoration: none;
+}
+
+.pagination .page-item.active .page-link {
+    background-color: #00B2FF;
+    color: white;
+    border: 1px solid #00B2FF;
+}
+
+.pagination .page-item .page-link:hover {
+    background-color: #00B2FF;
+    color: white;
+    border: 1px solid #00B2FF;
+}
+
+.pagination .page-item.disabled .page-link {
+    color: #d1d1d1;
+    pointer-events: none;
+    border: 1px solid #d1d1d1;
+}
+
+@media screen and (max-width: 462px) {
+    .mobile-container {
+        width: 100%;
+    }
+
+    .top-bar {
+        width: 100%;
+    }
+
+    .tabs {
+        width: 100%;
+    }
+
+    .table {
+        width: 100%;
+    }
 }
