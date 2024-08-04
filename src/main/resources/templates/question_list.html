@@ -1,44 +1,74 @@
-<html layout:decorate="~{layout}">
-<body layout:fragment="content">
-<table class="table">
-    <thead class="table-light">
-    </thead>
-    <tbody>
-    <tr th:each="question, loop : ${paging}">
-        <td>
-            <div class="post-container">
-                <div class="post-count">
-                    <span th:text="'게시글 ' + (${paging.getTotalElements - (paging.number * paging.size) - loop.index})"></span>
-                </div>
-                <a th:href="@{|/question/detail/${question.id}|}" th:text="${question.subject}" class="post-title"></a>
-                <span th:text="${#temporals.format(question.createDate, 'yyyy-MM-dd HH-mm')}" class="post-date"></span>
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>커뮤니티</title>
+    <link rel="stylesheet" href="/community-list.css">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" th:href="@{/bootstrap.min.css}">
+</head>
+<body>
+<div class="background">
+    <div class="mobile-container">
+        <div class="top-bar">
+            <div class="left-icons">
+                <a th:href="@{/main}">
+                    <img src="/images/back-icon.png" alt="뒤로가기" class="back-icon">
+                </a>
+                <a th:href="@{/main}">
+                    <img src="/images/backhome-icon.png" alt="홈" class="backhome-icon">
+                </a>
             </div>
-        </td>
-    </tr>
-    </tbody>
-</table>
-<div th:if="${!paging.isEmpty()}">
-    <div class="pagination-container">
-        <ul class="pagination justify-content-center">
-            <li class="page-item" th:classappend="${!paging.hasPrevious} ? 'disabled'">
-                <a class="page-link" th:href="@{|?page=${paging.number-1}|}">
-                    <span>이전</span>
-                </a>
-            </li>
-            <li th:each="page: ${#numbers.sequence(0, paging.totalPages-1)}"
-                th:if="${page >= paging.number-1 and page <= paging.number+1}"
-                th:classappend="${page == paging.number} ? 'active'"
-                class="page-item">
-                <a th:text="${page}" class="page-link" th:href="@{|?page=${page}|}"></a>
-            </li>
-            <li class="page-item" th:classappend="${!paging.hasNext} ? 'disabled'">
-                <a class="page-link" th:href="@{|?page=${paging.number+1}|}">
-                    <span>다음</span>
-                </a>
-            </li>
-        </ul>
-        <a th:href="@{/question/create}" class="write-btn"></a>
+            <h1>커뮤니티</h1>
+            <div class="right-space"></div>
+        </div>
+        <div class="content">
+            <table class="table">
+                <thead class="table-light">
+                </thead>
+                <tbody>
+                <tr th:each="question, loop : ${paging}">
+                    <td>
+                        <div class="post-container">
+                            <div class="post-count">
+                                <span th:text="'게시글 ' + (${paging.getTotalElements - (paging.number * paging.size) - loop.index})"></span>
+                            </div>
+                            <a th:href="@{|/question/detail/${question.id}|}" th:text="${question.subject}"
+                               class="post-title"></a>
+                            <span th:text="${#temporals.format(question.createDate, 'yyyy-MM-dd HH-mm')}"
+                                  class="post-date"></span>
+                        </div>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+            <div th:if="${!paging.isEmpty()}">
+                <div class="pagination-container">
+                    <ul class="pagination justify-content-center">
+                        <li class="page-item" th:classappend="${!paging.hasPrevious} ? 'disabled'">
+                            <a class="page-link" th:href="@{|?page=${paging.number-1}|}">
+                                <span>이전</span>
+                            </a>
+                        </li>
+                        <li th:each="page: ${#numbers.sequence(0, paging.totalPages-1)}"
+                            th:if="${page >= paging.number-1 and page <= paging.number+1}"
+                            th:classappend="${page == paging.number} ? 'active'"
+                            class="page-item">
+                            <a th:text="${page}" class="page-link" th:href="@{|?page=${page}|}"></a>
+                        </li>
+                        <li class="page-item" th:classappend="${!paging.hasNext} ? 'disabled'">
+                            <a class="page-link" th:href="@{|?page=${paging.number+1}|}">
+                                <span>다음</span>
+                            </a>
+                        </li>
+                    </ul>
+                    <a th:href="@{/question/create}" class="write-btn"></a>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
+<script th:src="@{/bootstrap.min.js}"></script>
 </body>
 </html>

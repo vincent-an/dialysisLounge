@@ -35,6 +35,55 @@ body {
     padding-bottom: 80px;
 }
 
+.top-bar {
+    width: 462px;
+    max-width: 462px;
+    height: 120px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    background: white;
+    z-index: 1000;
+    padding: 0 20px;
+    box-sizing: border-box;
+}
+
+.right-space {
+    width: 25px;
+}
+
+.top-bar h1 {
+    font-size: 26px;
+    font-weight: 700;
+    color: #00b2ff;
+    position: absolute;
+    left: 50%;
+    margin:0px;
+    transform: translateX(-50%);
+    font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+}
+
+.top-bar img {
+    height: 25px;
+}
+
+.back-icon {
+    cursor: pointer;
+    margin-right: 13px;
+}
+
+.backhome-icon {
+    cursor: pointer;
+    margin-right: 10px;
+    margin-left: 10px;
+}
+
+.content {
+    margin-top: 120px;
+}
+
 textarea {
     width:100%;
 }

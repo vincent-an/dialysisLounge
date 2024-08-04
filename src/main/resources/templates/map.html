@@ -10,17 +10,17 @@
         #search-box {
             padding: 10px;
             text-align: center;
-            background-color: white;
+            background-color: rgba(255, 255, 255, 0.7); /* 배경 투명도 설정 */
             position: absolute;
             top: 80px;
             left: 50%;
             transform: translateX(-50%);
             z-index: 10;
-            width: 400px;
+            width: 500px;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
         }
         #keyword {
-            width: 300px;
+            width: 350px;
             padding: 5px;
         }
     </style>
@@ -169,8 +169,6 @@
                     map: map,
                     position: positions[i].latlng
                 });
-
-                markers.push(marker);
 
                 markers.push(marker);
 

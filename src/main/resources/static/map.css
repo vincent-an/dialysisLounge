@@ -32,7 +32,7 @@ body, html {
 .top-bar {
     width: 462px;
     max-width: 462px;
-    height: 80px;
+    height: 70px;
     display: flex;
     justify-content: space-between;
     align-items: center;

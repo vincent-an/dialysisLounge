@@ -1,41 +1,64 @@
-<html layout:decorate="~{layout}">
-<!--부트스트립은 공통으로 받지만 css가 각자 달라 아마 상속을 수정하거나 표준 html 사용해야될거 같음-->
-<body layout:fragment="content">
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>커뮤니티</title>
+    <link rel="stylesheet" href="/community-detail.css">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" th:href="@{/bootstrap.min.css}">
+</head>
+<body>
 <div class="background">
     <div class="mobile-container">
-        <!--        질문 card 시작-->
-        <h2 class="border-bottom py-2" th:text="${question.subject}"></h2>
-        <div class="card my-3">
-            <div class="card-body">
-                <div class="card-text" style="white-space: pre-line;" th:text="${question.content}"></div>
-                <div class="d-flex justify-content-end">
-                    <div class="badge bg-light text-dark p-2 text-start">
-                        <div th:text="${#temporals.format(question.createDate, 'yyyy-MM-dd HH:mm')}"></div>
+        <div class="top-bar">
+            <div class="left-icons">
+                <a th:href="@{/question/list}">
+                    <img src="/images/back-icon.png" alt="뒤로가기" class="back-icon">
+                </a>
+                <a th:href="@{/main}">
+                    <img src="/images/backhome-icon.png" alt="홈" class="backhome-icon">
+                </a>
+            </div>
+            <h1>커뮤니티</h1>
+            <div class="right-space"></div>
+        </div>
+        <div class="content">
+            <!--        질문 card 시작-->
+            <h2 class="border-bottom py-2" th:text="${question.subject}"></h2>
+            <div class="card my-3">
+                <div class="card-body">
+                    <div class="card-text" style="white-space: pre-line;" th:text="${question.content}"></div>
+                    <div class="d-flex justify-content-end">
+                        <div class="badge bg-light text-dark p-2 text-start">
+                            <div th:text="${#temporals.format(question.createDate, 'yyyy-MM-dd HH:mm')}"></div>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <!--답변의 갯수를 의미-->
-        <h5 class="border-bottom my-3 py-2" th:text="|${#lists.size(question.answerList)}개의 답변이 있습니다.|"></h5>
-        <!-- 답변 반복 시작 -->
-        <div class="card my-3" th:each="answer : ${question.answerList}">
-            <div class="card-body">
-                <div class="card-text" style="white-space: pre-line;" th:text="${answer.content}"></div>
-                <div class="d-flex justify-content-end">
-                    <div class="badge bg-light text-dark p-2 text-start">
-                        <div th:text="${#temporals.format(answer.createDate, 'yyyy-MM-dd HH:mm')}"></div>
+            <!--답변의 갯수를 의미-->
+            <h5 class="border-bottom my-3 py-2" th:text="|${#lists.size(question.answerList)}개의 답변이 있습니다.|"></h5>
+            <!-- 답변 반복 시작 -->
+            <div class="card my-3" th:each="answer : ${question.answerList}">
+                <div class="card-body">
+                    <div class="card-text" style="white-space: pre-line;" th:text="${answer.content}"></div>
+                    <div class="d-flex justify-content-end">
+                        <div class="badge bg-light text-dark p-2 text-start">
+                            <div th:text="${#temporals.format(answer.createDate, 'yyyy-MM-dd HH:mm')}"></div>
+                        </div>
                     </div>
                 </div>
             </div>
+            <!-- 답변 반복 끝  -->
+            <!-- 답변 작성 -->
+            <form th:action="@{|/answer/create/${question.id}|}" th:object="${answerForm}" method="post" class="my-3">
+                <div th:replace="~{form_errors :: formErrorsFragment}"></div>
+                <textarea th:field="*{content}" rows="10" class="form-control"></textarea>
+                <input type="submit" value="답변등록" class="btn btn-primary my-2">
+            </form>
         </div>
-        <!-- 답변 반복 끝  -->
-        <!-- 답변 작성 -->
-        <form th:action="@{|/answer/create/${question.id}|}" th:object="${answerForm}" method="post" class="my-3">
-            <div th:replace="~{form_errors :: formErrorsFragment}"></div>
-            <textarea th:field="*{content}" rows="10" class="form-control"></textarea>
-            <input type="submit" value="답변등록" class="btn btn-primary my-2">
-        </form>
     </div>
 </div>
+<script th:src="@{/bootstrap.min.js}"></script>
 </body>
 </html>
