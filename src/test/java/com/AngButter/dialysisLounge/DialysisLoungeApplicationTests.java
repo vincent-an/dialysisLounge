@@ -1,40 +1,49 @@
 package com.AngButter.dialysisLounge;
 
+import com.AngButter.dialysisLounge.Answer.Answer;
+import com.AngButter.dialysisLounge.Answer.AnswerRepository;
+import com.AngButter.dialysisLounge.Question.Question;
+import com.AngButter.dialysisLounge.Question.QuestionRepository;
+import com.AngButter.dialysisLounge.Question.QuestionService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.transaction.annotation.Transactional;
 
-import java.time.LocalTime;
+import java.time.LocalDateTime;
+import java.util.Optional;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 @SpringBootTest
 class DialysisLoungeApplicationTests {
 
 	@Autowired
-	private AddressRepository addressRepository;
+	private QuestionService questionService;
 
 	@Test
 	void testJpa() {
-		Address a1 = new Address();
-		a1.setHospitalName("연세한마음내과의원");
-		a1.setAddress("서울 강동구 양재대로");
-		a1.setDAddress("1486 정남빌딩 4층");
-		a1.setLatitude(37.538376);
-		a1.setLongitude(127.140488);
-		a1.setOpeningTime(LocalTime.of(9,0));
-		a1.setClosingTime(LocalTime.of(17,30));
-		a1.setPage("https://place.map.kakao.com/1537702311");
-		this.addressRepository.save(a1);
+		for (int i = 1; i <= 300; i++) {
+			String subject = String.format("테스트 데이터입니다:[%03d]", i);
+			String content = "내용 없음 ";
+			this.questionService.create(subject, content);
+		}
 
-		Address a2 = new Address();
-		a2.setHospitalName("이정익내과의원");
-		a2.setAddress("서울특별시 송파구 석촌호수로");
-		a2.setDAddress("61 트리지움상가 5층");
-		a2.setLatitude(37.51144);
-		a2.setLongitude(127.086096);
-		a2.setOpeningTime(LocalTime.of(9,0));
-		a2.setClosingTime(LocalTime.of(18,00));
-		a2.setPage("https://place.map.kakao.com/8056333");
-		this.addressRepository.save(a2);
+
+
+
+//		Question q1 = new Question();
+//		q1.setSubject("양재동에 투석병원이 있나요?");
+//		q1.setContent("양재동에 투석병원이 있는지 알고싶습니다.");
+//		q1.setCreateDate(LocalDateTime.now());
+//		this.questionRepository.save(q1);
+//
+//		Question q2 = new Question();
+//		q2.setSubject("투석환자 식단 질문입니다.");
+//		q2.setContent("어떤 음식을 조심해야되나요?");
+//		q2.setCreateDate(LocalDateTime.now());
+//		this.questionRepository.save(q2);
 	}
 
 }
