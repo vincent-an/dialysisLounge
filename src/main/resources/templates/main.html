@@ -19,7 +19,7 @@
         </div>
         <div class="main-banner">
             <h1>투석 요법,<br>생활과 식습관 조절 필수!</h1>
-            <button class="find-center-btn"  onclick="window.location.href='/service/map'">
+            <button class="find-center-btn " onclick="window.location.href='/service/map'">
                 <img src="/images/search-icon.png" class="search-icon" alt="서치 아이콘">근처 투석 센터 찾기
             </button>
         </div>
@@ -27,11 +27,9 @@
             <h2>투석라운지 서비스</h2>
             <div class="service-cards">
                 <button class="service-card diet-btn">
-                    <div class="service-card-content">
-                        <div class="service-card-content" onclick="window.location.href='/service/diet'">
+                    <div class="service-card-content" onclick="window.location.href='/service/recipe'">
                         <h3>식사 관리</h3>
                         <p>투석 환자를 위한<br>영양 가이드와 레시피</p>
-                        </div>
                     </div>
                     <img src="/images/diet2-icon.png" alt="식사 관리 아이콘">
                 </button>
@@ -49,10 +47,10 @@
                     </div>
                     <img src="/images/lifestyle-icon.png" alt="생활관리법 아이콘">
                 </button>
-                <button class="service-card education-btn" onclick="window.location.href='/service/magazine'">
+                <button class="service-card education-btn" onclick="window.location.href='/service/education-magazine'">
                     <div class="service-card-content">
                         <h3>투석 요법<br>교육자료</h3>
-                        <p>투석 요법<br>생활 관리 요령</p>
+                        <p>투석을 이해하기 위한<br>다양한 자료</p>
                     </div>
                     <img src="/images/education2-icon.png" alt="교육 자료 아이콘">
                 </button>
@@ -60,31 +58,33 @@
         </div>
 
         <div class="additional-banners">
-            <div class="additional-banner1">
-                <span class="banner-text">주변에 있는 투석 센터를<br>지도에서 확인할 수 있어요</span>
-            </div>
-            <div class="additional-banner2">
-                <span class="banner-text"><span class="highlight">투석 생활을 개선하는 법</span><br><span class="highlight2">건강한 식단으로 건강 관리하세요!</span></span>
-            </div>
-            <div class="additional-banner3">
-                <span class="banner-text"><span class="highlight3">혈액투석이 필요한 모든순간</span><br><span class="highlight4">투석라운지로 유익한 정보를 얻을 수 있어요</span></span>
-            </div>
+            <a th:href="@{/service/map}">
+                <div class="additional-banner1">
+                    <span class="banner-text">주변에 있는 투석 센터를<br>지도에서 확인할 수 있어요</span>
+                </div>
+            </a>
+            <a th:href="@{/service/recipe}">
+                <div class="additional-banner2">
+                    <span class="banner-text"><span class="highlight">투석 생활을 개선하는 법</span><br><span class="highlight2">건강한 식단으로 건강 관리하세요!</span></span>
+                </div>
+            </a>
+            <a th:href="@{/service/education-magazine}">
+                <div class="additional-banner3">
+                    <span class="banner-text"><span class="highlight3">투석에 대한 모든 것을 질문해보세요.</span><br><span class="highlight4">경험을 공유하세요!</span></span>
+                </div>  </a>
         </div>
 
         <div class="footer-nav">
             <ul>
                 <li class="nav-item1">
-                    <a href="#">
-                        <a th:href="@{/main}">
-                            <img src="/images/home-icon.png" alt="홈 아이콘">홈</a>
-                    </a>
-                </li>
+                    <a href="#"> <a th:href="@{/main}"><img src="/images/home-icon.png" alt="홈 아이콘">홈</a>
+                    </a></li>
                 <li class="nav-item2">
-                    <a th:href="@{/service/diet}"><img src="/images/diet-icon.png" alt="식단 아이콘">식단</a>
-                </li>
+                    <a href="#"> <a th:href="@{/service/recipe}"><img src="/images/diet-icon.png" alt="식단 아이콘">식단</a>
+                    </a></li>
                 <li class="nav-item3">
-                    <a th:href="@{/question/list}"><img src="/images/education-icon.png" alt="교육 자료 아이콘">커뮤니티</a>
-                </li>
+                    <a href="#"><a th:href="@{/question/list}"><img src="/images/community-icon.png" alt="커뮤니티 아이콘">커뮤니티</a>
+                    </a> </li>
             </ul>
             <button class="search-nearby" onclick="window.location.href='/service/map'">
                     <span class="search-nearby-text">
@@ -96,4 +96,5 @@
     </div>
 </div>
 </body>
+</html>
 </html>

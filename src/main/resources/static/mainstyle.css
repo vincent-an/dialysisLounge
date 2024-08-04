@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap');
 @import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css");
 
+
 * {
     box-sizing: border-box;
 }
@@ -19,6 +20,7 @@ body {
 
 .background {
     width: 100%;
+    height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -27,11 +29,13 @@ body {
 
 .mobile-container {
     width: 462px;
-    background: white;
+    max-width: 462px;
+    background: #f9f9f9;
     display: flex;
     flex-direction: column;
     position: relative;
     overflow-y: auto;
+    overflow-x: hidden;
     height: 100vh;
     padding-bottom: 80px;
 }
@@ -101,7 +105,7 @@ body {
     font-size: 20px;
     cursor: pointer;
     text-align: center;
-    font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+    font-family: 'Pretendard', sans-serif;
 }
 
 .find-center-btn .search-icon {
@@ -113,6 +117,7 @@ body {
     padding: 10px 20px 20px 20px;
     background: white;
     flex-shrink: 0;
+    border-radius: 25px 25px 0px 0px;
 }
 
 .services h2 {
@@ -129,6 +134,7 @@ body {
 }
 
 .service-card {
+    cursor: pointer;
     text-align:left;
     display: flex;
     align-items: center;
@@ -158,14 +164,18 @@ body {
     font-size: 20px;
     font-weight: 650;
     margin: 0;
-    font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+    font-family: 'Pretendard', sans-serif;
 }
 
 .service-card p {
     font-size: 13px;
     color: #919191;
     margin: 10px 0 0 0;
-    font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+    font-family: 'Pretendard', sans-serif;
+}
+
+.additional-banners {
+    background-color: white;
 }
 
 .additional-banner1 {
@@ -176,13 +186,14 @@ body {
     position: relative;
     margin: 20px auto;
     overflow: hidden;
+    cursor: pointer;
 }
 
 .additional-banner1 .banner-text {
     color: #ffffff;
-    font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+    font-family: 'Pretendard', sans-serif;
     font-weight: 600;
-    font-size: 18px;
+    font-size: 16px;
     line-height: 1.5;
     position: absolute;
     top: 34px;
@@ -198,13 +209,14 @@ body {
     position: relative;
     margin: 20px auto;
     overflow: hidden;
+    cursor: pointer;
 }
 
 .additional-banner2 .banner-text .highlight {
     color: #DC7143;
-    font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+    font-family: 'Pretendard', sans-serif;
     font-weight: 600;
-    font-size: 18px;
+    font-size: 16px;
     line-height: 1.5;
     position: absolute;
     top: 34px;
@@ -214,9 +226,9 @@ body {
 
 .additional-banner2 .banner-text .highlight2 {
     color: #000000;
-    font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+    font-family: 'Pretendard', sans-serif;
     font-weight: 600;
-    font-size: 18px;
+    font-size: 16px;
     line-height: 1.5;
     position: absolute;
     top: 60px;
@@ -232,13 +244,14 @@ body {
     position: relative;
     margin: 20px auto;
     overflow: hidden;
+    cursor: pointer;
 }
 
 .additional-banner3 .banner-text .highlight3 {
     color: #28467E;
-    font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+    font-family: 'Pretendard', sans-serif;
     font-weight: 600;
-    font-size: 18px;
+    font-size: 16px;
     line-height: 1.5;
     position: absolute;
     top: 34px;
@@ -248,9 +261,9 @@ body {
 
 .additional-banner3 .banner-text .highlight4 {
     color: #2175E3;
-    font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+    font-family: 'Pretendard', sans-serif;
     font-weight: 600;
-    font-size: 18px;
+    font-size: 16px;
     line-height: 1.5;
     position: absolute;
     top: 60px;
@@ -324,6 +337,7 @@ button.search-nearby {
     right: 30px;
     bottom: 10px;
     border: none;
+    cursor: pointer;
 }
 
 .search-nearby .search-nearby-text {
@@ -338,7 +352,7 @@ button.search-nearby {
 .search-nearby .search-nearby-text .small-text {
     font-size: 15px;
     margin-top: 15px;
-    font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+    font-family: 'Pretendard', sans-serif;
 }
 
 .search-nearby .search-nearby-text .large-text {
