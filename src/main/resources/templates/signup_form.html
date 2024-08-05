@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>회원가입</title>
+    <link rel="stylesheet" href="/community-signup.css">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" th:href="@{/bootstrap.min.css}">
+</head>
+<body>
+<div class="background">
+    <div class="mobile-container">
+        <div class="top-bar">
+            <div class="left-icons">
+                <a th:href="@{/question/list}">
+                    <img src="/images/back-icon.png" alt="뒤로가기" class="back-icon">
+                </a>
+                <a th:href="@{/main}">
+                    <img src="/images/backhome-icon.png" alt="홈" class="backhome-icon">
+                </a>
+            </div>
+            <h1>투석라운지</h1>
+            <div class="right-space"></div>
+        </div>
+        <div class="content">
+            <div class="my-3 border-bottom">
+                <div class="m-3">
+<!--                    글씨 색 변경-->
+                    <h4>회원가입</h4>
+                </div>
+            </div>
+            <form th:action="@{/user/signup}" th:object="${userCreateForm}" method="post">
+                <div th:replace="~{form_errors :: formErrorsFragment}"></div>
+                <div class="m-3">
+                    <label for="username" class="form-label">사용자ID</label>
+                    <input type="text" th:field="*{username}" class="form-control">
+                </div>
+                <div class="m-3">
+                    <label for="password1" class="form-label">비밀번호</label>
+                    <input type="password" th:field="*{password1}" class="form-control">
+                </div>
+                <div class="m-3">
+                    <label for="password2" class="form-label">비밀번호 확인</label>
+                    <input type="password" th:field="*{password2}" class="form-control">
+                </div>
+                <div class="m-3">
+                    <label for="email" class="form-label">이메일</label>
+                    <input type="email" th:field="*{email}" class="form-control">
+                </div>
+                <button type="submit" class="btn btn-primary m-3">회원가입</button>
+            </form>
+        </div>
+    </div>
+</div>
+<script th:src="@{/bootstrap.min.js}"></script>
+</body>
+</html>

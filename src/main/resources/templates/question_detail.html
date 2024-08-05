@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="ko" xmlns:sec="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -54,7 +54,10 @@
         <!-- 답변 작성 -->
         <form th:action="@{|/answer/create/${question.id}|}" th:object="${answerForm}" method="post" class="my-3 answer-form">
             <div th:replace="~{form_errors :: formErrorsFragment}"></div>
-            <textarea th:field="*{content}" rows="5" class="form-control" placeholder="  답변을 남겨보세요."></textarea>
+            <textarea sec:authorize="isAnonymous()" disabled th:field="*{content}"
+                      class="form-control" rows="5" placeholder="  로그인이 필요합니다."></textarea>
+            <textarea sec:authorize="isAuthenticated()" rows="5" th:field="*{content}"
+                      class="form-control" placeholder="  답변을 남겨보세요."></textarea>
             <input type="submit" value="답변등록" class="btn btn-primary my-2 answer-button">
         </form>
     </div>

@@ -1,6 +1,7 @@
 package com.AngButter.dialysisLounge.Question;
 
 import com.AngButter.dialysisLounge.DataNotFoundException;
+import com.AngButter.dialysisLounge.User.SiteUser;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -39,11 +40,12 @@ public class QuestionService {
     }
 
     //제목과 내용을 입력받아 이를 질문으로 저장하는 create 메서드 생성
-    public void create(String subject, String content) {
+    public void create(String subject, String content, SiteUser user) {
         Question q = new Question();
         q.setSubject(subject);
         q.setContent(content);
         q.setCreateDate(LocalDateTime.now());
+        q.setAuthor(user);
         this.questionRepository.save(q);
     }
 }

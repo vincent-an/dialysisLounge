@@ -1,6 +1,7 @@
 package com.AngButter.dialysisLounge.Question;
 
 import com.AngButter.dialysisLounge.Answer.Answer;
+import com.AngButter.dialysisLounge.User.SiteUser;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -26,4 +27,8 @@ public class Question {
 
     @OneToMany(mappedBy = "question", cascade = CascadeType.REMOVE) //질문 삭제시 달린 답변 삭제
     private List<Answer> answerList;
+
+    //로그인 기능 구현시 사용
+    @ManyToOne
+    private SiteUser author; //글쓴이
 }

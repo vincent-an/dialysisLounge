@@ -1,6 +1,7 @@
 package com.AngButter.dialysisLounge.Answer;
 
 import com.AngButter.dialysisLounge.Question.Question;
+import com.AngButter.dialysisLounge.User.SiteUser;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -24,4 +25,8 @@ public class Answer {
 
     @ManyToOne //N:1관계를 나타냄
     private Question question; //질문데이터
+
+    //로그인 기능 시 사용
+    @ManyToOne
+    private SiteUser author; //작성자
 }
