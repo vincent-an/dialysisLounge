@@ -2,6 +2,8 @@ package com.AngButter.dialysisLounge;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -23,6 +25,15 @@ public class SecurityConfig {
                 .headers((headers) -> headers
                         .addHeaderWriter(new XFrameOptionsHeaderWriter(
                                 XFrameOptionsHeaderWriter.XFrameOptionsMode.SAMEORIGIN)))
+                //로그인 설정 담당 기능
+                .formLogin((formLogin) -> formLogin
+                        .loginPage("/user/login") //로그인 폼 url
+                        .defaultSuccessUrl("/question/list")) //로그인 성공시 이동할 url
+                //로그아웃 설정 담당
+                .logout((logout) -> logout
+                        .logoutRequestMatcher(new AntPathRequestMatcher("/user/logout")) //로그아웃 url
+                        .logoutSuccessUrl("/question/list") //로그아웃 시 이동 url
+                        .invalidateHttpSession(true)) // 사용된 사용자 세션 삭제
         ;
         return http.build();
     }
@@ -30,5 +41,11 @@ public class SecurityConfig {
     @Bean
     PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
+    }
+
+    @Bean
+    //시큐리티의 인증을 처리하는 빈. UserSecurityService, PasswordEncoder 내부적 사용하여 권한, 인증 프로세스 처리
+    AuthenticationManager authenticationManager(AuthenticationConfiguration authenticationConfiguration) throws Exception {
+        return authenticationConfiguration.getAuthenticationManager();
     }
 }
