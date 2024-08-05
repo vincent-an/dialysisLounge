@@ -31,4 +31,6 @@ public class Question {
     //로그인 기능 구현시 사용
     @ManyToOne
     private SiteUser author; //글쓴이
+
+    private LocalDateTime modifyDate; //수정일시
 }

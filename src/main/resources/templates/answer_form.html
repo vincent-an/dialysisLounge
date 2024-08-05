@@ -20,24 +20,19 @@
                     <img src="/images/backhome-icon2.png" alt="홈" class="backhome-icon">
                 </a>
             </div>
-            <h1>글쓰기</h1>
+            <h1>답변수정</h1>
             <div class="right-space"></div>
         </div>
         <div class="content">
             <div class="mobile-container">
-                <h5 class="title-text">커뮤니티 글 등록</h5>
-                <h5 class="title-text2">투석에 대한 모든 것을 질문해보세요. 경험을 공유하세요!</h5>
-                <form th:object="${questionForm}" method="post">
+                <h5 class="title-text">답변 글 수정</h5>
+                <form th:object="${answerForm}" method="post">
                     <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
                     <div th:replace="~{form_errors :: formErrorsFragment}"></div>
                     <div class="m-3">
-                        <input type="text" th:field="*{subject}" class="form-control" placeholder="  제목">
+                        <textarea th:field="*{content}" class="form-control" rows="10"></textarea>
                     </div>
-                    <div class="m-3">
-                        <textarea th:field="*{content}" class="form-control" placeholder="  내용을 입력하세요."rows="10"></textarea>
-                    </div>
-<!--                    my-2 -> m-3으로? -->
-                    <input type="submit" value="글쓰기" class="btn btn-primary my-2 answer-button">
+                    <input type="submit" value="저장하기" class="btn btn-primary my-2 answer-button">
                 </form>
             </div>
         </div>

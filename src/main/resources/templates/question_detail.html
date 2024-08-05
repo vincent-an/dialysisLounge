@@ -26,12 +26,32 @@
         <div class="content">
             <!--질문 card 시작-->
             <div class="question-box">
+                <div class="author">
+                    <div th:if="${question.author != null}" th:text="${question.author.username}"></div>
+                </div>
                 <h2 class="title-text" th:text="${question.subject}"></h2>
                 <div class="q-card">
                     <div class="q-card-body">
-                        <div class="date" th:text="${#temporals.format(question.createDate, 'yyyy-MM-dd HH:mm')}"></div>
+                        <div th:if="${question.modifyDate != null}">
+                            <!--수정 일시 추가-->
+                            <div class="modify-text">
+                                <div th:text="${#temporals.format(question.modifyDate, 'yyyy.MM.dd HH:mm')}"></div>
+                                <div>수정됨</div>
+                            </div>
+                        </div>
+                        <div class="date" th:text="${#temporals.format(question.createDate, 'yyyy.MM.dd HH:mm')}"></div>
                         <div class="card-text" style="white-space: pre-line;" th:text="${question.content}"></div>
                     </div>
+                </div>
+                <div class="btn-option">
+                    <a th:href="@{|/question/modify/${question.id}|}" class="btn btn-sm btn-outline-secondary rounded-pill"
+                       sec:authorize="isAuthenticated()"
+                       th:if="${question.author != null and #authentication.getPrincipal().getUsername() == question.author.username}"
+                       th:text="수정"></a>
+                    <a href="javascript:void(0);" th:data-uri="@{|/question/delete/${question.id}|}"
+                       class="delete btn btn-sm btn-outline-secondary rounded-pill" sec:authorize="isAuthenticated()"
+                       th:if="${question.author != null and #authentication.getPrincipal().getUsername() == question.author.username}"
+                       th:text="삭제"></a>
                 </div>
             </div>
             <div class="answer-box">
@@ -39,11 +59,31 @@
                 <h5 class="title-text2" th:text="|${#lists.size(question.answerList)}개의 답변|"></h5>
                 <!-- 답변 반복 시작 -->
                 <div class="a-card" th:each="answer : ${question.answerList}">
-                    <div class="a-card-body">
+                    <div class="a-card-body pt-0">
+                        <div class="author">
+                            <div th:if="${question.author != null}" th:text="${question.author.username}"></div>
+                        </div>
                         <div class="card-text" style="white-space: pre-line;" th:text="${answer.content}"></div>
                         <div class="d-flex justify-content-start">
                             <div class="date">
+                                <div th:if="${question.modifyDate != null}">
+                                    <!--수정 일시 추가-->
+                                    <div class="modify-text">
+                                        <div th:text="${#temporals.format(question.modifyDate, 'yyyy.MM.dd HH:mm')}"></div>
+                                        <div>수정됨</div>
+                                    </div>
+                                </div>
                                 <div th:text="${#temporals.format(answer.createDate, 'yyyy-MM-dd HH:mm')}"></div>
+                            </div>
+                            <div class="btn-option">
+                                <a th:href="@{|/answer/modify/${answer.id}|}" class="btn btn-sm btn-outline-secondary rounded-pill"
+                                   sec:authorize="isAuthenticated()"
+                                   th:if="${question.author != null and #authentication.getPrincipal().getUsername() == question.author.username}"
+                                   th:text="수정"></a>
+                                <a href="javascript:void(0);" th:data-uri="@{|/answer/delete/${answer.id}|}"
+                                   class="delete btn btn-sm btn-outline-secondary rounded-pill" sec:authorize="isAuthenticated()"
+                                   th:if="${question.author != null and #authentication.getPrincipal().getUsername() == question.author.username}"
+                                   th:text="삭제"></a>
                             </div>
                         </div>
                     </div>
@@ -63,5 +103,15 @@
     </div>
 </div>
 <script th:src="@{/bootstrap.min.js}"></script>
+<script>
+    const delete_elements = document.getElementsByClassName("delete");
+    Array.from(delete_elements).forEach(function(element) {
+        element.addEventListener('click', function() {
+            if(confirm("정말로 삭제하시겠습니까?")) {
+                location.href = this.dataset.uri;
+            };
+        });
+    });
+</script>
 </body>
 </html>

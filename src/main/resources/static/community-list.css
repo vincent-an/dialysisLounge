@@ -2,6 +2,7 @@
 
 * {
     box-sizing: border-box;
+    --bs-info-rgb: 0,178,255; //색상변경
     --bs-body-font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
 }
 
@@ -86,6 +87,10 @@ body {
     margin-top: 120px;
 }
 
+.nav-font {
+    font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+}
+
 .lounge-logo2 {
     margin-right: 10px;
     margin-left: 10px;
@@ -135,6 +140,10 @@ tbody {
     color: #007ACC;
 }
 
+.post-flex {
+    display: flex;
+    gap: 10px;
+}
 
 .post-date {
     font-size: 14px;
@@ -157,7 +166,8 @@ tbody {
     background-image: url('/images/write.png');
     background-size: cover;
     background-position: center;
-    bottom: 70px;
+    /* 70px -> 0px 수정*/
+    bottom: 0px;
     right: 20px;
     border: none;
     cursor: pointer;

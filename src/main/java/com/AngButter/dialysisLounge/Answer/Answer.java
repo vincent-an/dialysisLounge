@@ -29,4 +29,6 @@ public class Answer {
     //로그인 기능 시 사용
     @ManyToOne
     private SiteUser author; //작성자
+
+    private LocalDateTime modifyDate; //수정일시
 }

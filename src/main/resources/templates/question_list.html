@@ -27,11 +27,14 @@
             <!--            메뉴바 부분 start 삭제시 메뉴바 안보이고 마지막 버튼 class 추가한거 빼기 -->
             <ul class="nav m-2">
                 <li class="nav-item">
-                    <a class="nav-link text-dark" th:href="@{/user/signup}">회원가입</a>
+                    <a class="nav-link text-info rounded-pill border border-info py-1 mx-3 nav-font" style="background-color: #E6F7FF"
+                       sec:authorize="isAnonymous()" th:href="@{/user/login}">로그인</a>
+                    <a class="nav-link text-info rounded-pill border border-info py-1 mx-3 nav-font" style="background-color: #E6F7FF"
+                       sec:authorize="isAuthenticated()" th:href="@{/user/logout}">로그아웃</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-dark" sec:authorize="isAnonymous()" th:href="@{/user/login}">로그인</a>
-                    <a class="nav-link text-dark" sec:authorize="isAuthenticated()" th:href="@{/user/logout}">로그아웃</a>
+                    <a class="nav-link text-info rounded-pill border border-info py-1 nav-font" style="background-color: #E6F7FF"
+                       th:href="@{/user/signup}">회원가입</a>
                 </li>
             </ul>
 <!--            메뉴바 부분 End -->
@@ -47,10 +50,12 @@
                             </div>
                             <a th:href="@{|/question/detail/${question.id}|}" th:text="${question.subject}"
                                class="post-title"></a>
-                            <span th:text="${#temporals.format(question.createDate, 'yyyy-MM-dd HH-mm')}"
-                                  class="post-date"></span>
-                            <span th:if="${question.author != null}" th:text="${question.author.username}"
-                                  class="post-author"></span>
+                            <div class="post-flex">
+                                <span th:if="${question.author != null}" th:text="${question.author.username}"
+                                      class="post-author"></span>
+                                <span th:text="${#temporals.format(question.createDate, 'yyyy.MM.dd HH:mm')}"
+                                      class="post-date"></span>
+                            </div>
                         </div>
                     </td>
                 </tr>
@@ -76,9 +81,10 @@
                             </a>
                         </li>
                     </ul>
-<!--                    <a th:href="@{/question/create}" class="write-btn"></a>-->
+<!--                    css 수정 -->
+                    <a th:href="@{/question/create}" class="write-btn"></a>
                     <!-- 메뉴바 추가시 위에 버튼 빼고 활성화-->
-                    <a th:href="@{/question/create}" class="write-btn mb-4 pt-1 position-absolute bottom-0 end-1"></a>
+<!--                    <a th:href="@{/question/create}" class="write-btn mb-4 pt-3 position-absolute bottom-0 end-1"></a>-->
                 </div>
             </div>
         </div>
