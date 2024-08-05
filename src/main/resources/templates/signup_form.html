@@ -16,24 +16,15 @@
                 <a th:href="@{/question/list}">
                     <img src="/images/back-icon.png" alt="뒤로가기" class="back-icon">
                 </a>
-                <a th:href="@{/main}">
-                    <img src="/images/backhome-icon.png" alt="홈" class="backhome-icon">
-                </a>
             </div>
-            <h1>투석라운지</h1>
+            <h1>회원가입</h1>
             <div class="right-space"></div>
         </div>
         <div class="content">
-            <div class="my-3 border-bottom">
-                <div class="m-3">
-<!--                    글씨 색 변경-->
-                    <h4>회원가입</h4>
-                </div>
-            </div>
             <form th:action="@{/user/signup}" th:object="${userCreateForm}" method="post">
                 <div th:replace="~{form_errors :: formErrorsFragment}"></div>
                 <div class="m-3">
-                    <label for="username" class="form-label">사용자ID</label>
+                    <label for="username" class="form-label">사용자 이름</label>
                     <input type="text" th:field="*{username}" class="form-control">
                 </div>
                 <div class="m-3">
@@ -48,11 +39,24 @@
                     <label for="email" class="form-label">이메일</label>
                     <input type="email" th:field="*{email}" class="form-control">
                 </div>
-                <button type="submit" class="btn btn-primary m-3">회원가입</button>
+                <div class="d-grid gap-2 m-3">
+                <button type="submit" class="btn btn-primary" id="button">회원가입</button>
+                </div>
             </form>
         </div>
     </div>
 </div>
 <script th:src="@{/bootstrap.min.js}"></script>
 </body>
+<script>
+    document.getElementById("button").addEventListener("focus", () => {
+        document.getElementById("button").style.backgroundColor = "#00B2FF";
+        document.getElementById("button").innerText = "환영합니다!";
+    });
+
+    document.getElementById("button").addEventListener("blur", () => {
+        document.getElementById("button").style.backgroundColor = "#00B2FF";
+        document.getElementById("button").innerText = "회원가입";
+    });
+</script>
 </html>
