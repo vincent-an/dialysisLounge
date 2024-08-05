@@ -161,6 +161,7 @@ body {
 }
 
 .service-card h3 {
+    color: #000000;
     font-size: 20px;
     font-weight: 650;
     margin: 0;
@@ -176,6 +177,7 @@ body {
 
 .additional-banners {
     background-color: white;
+    padding-bottom: 80px;
 }
 
 .additional-banner1 {
@@ -287,7 +289,7 @@ body {
 .footer-nav ul {
     display: flex;
     justify-content: space-between;
-    gap: 66px;
+    gap: 62px;
     margin: 0;
     list-style: none;
 }

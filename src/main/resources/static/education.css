@@ -107,6 +107,7 @@ button.banner {
     border-radius: 10px;
     font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
     border: none;
+    cursor: pointer;
 }
 
 .banner-text{
@@ -121,7 +122,7 @@ button.banner {
 }
 
 .video-list {
-    padding: 10px 20px 20px 20px;
+    padding: 10px 20px 80px 20px;
 }
 
 button.video-item.video1, button.video-item.video2, button.video-item.video3, button.video-item.video4 {
@@ -136,6 +137,7 @@ button.video-item.video1, button.video-item.video2, button.video-item.video3, bu
     border-radius: 15px;
     text-align: left;
     background-color: #fff;
+    cursor: pointer;
     margin-bottom: 15px;
     font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
 }

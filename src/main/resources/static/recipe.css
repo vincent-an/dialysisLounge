@@ -71,9 +71,9 @@ body, html {
     margin-left: 10px;
 }
 
-.content-box {
+.content-box2 {
     margin-top: 120px;
-    padding: 0px 20px 20px 20px;
+    padding: 0px 20px 80px 20px;
 }
 
 .recipe-title {
@@ -192,7 +192,7 @@ button.tab.active {
 }
 
 .recipe-content {
-    padding: 20px 20px 10px 20px;
+    padding: 20px 20px 20px 20px;
 }
 
 .step {
@@ -279,6 +279,7 @@ button.tab.active {
 
 .content-box {
     padding: 20px;
+    margin-top: 120px;
 }
 
 button.recipe-1, button.recipe-2, button.recipe-3, button.recipe-4, button.recipe-5, button.recipe-6 {

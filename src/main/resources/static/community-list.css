@@ -102,7 +102,6 @@ tbody {
     font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
 }
 
-/* 전체 게시글 컨테이너 */
 .post-container {
     display: flex;
     flex-direction: column;
@@ -110,7 +109,6 @@ tbody {
     margin-left: 15px;
 }
 
-/* 게시글 개수 스타일 */
 .post-count {
     background-color: #00B2FF;
     width: 70px;
@@ -125,7 +123,6 @@ tbody {
     margin-top: 10px;
 }
 
-/* 글 제목 스타일 */
 .post-title {
     margin-top: 10px;
     font-weight: 600;
@@ -134,39 +131,37 @@ tbody {
     font-size: 18px;
 }
 
-/* 글 제목에 호버 시 스타일 */
 .post-title:hover {
-    color: #007ACC; /* 호버 시 글자 색 변경 */
+    color: #007ACC;
 }
 
-/* 작성일자 스타일 */
+
 .post-date {
     font-size: 14px;
     margin-top: 4px;
     color: #A6A6A6;
-    font-size: 0.9em; /* 글자 크기 조절 */
+    font-size: 0.9em;
 }
 
-/* 사용자 정의 이미지 버튼 스타일 */
 .write-btn {
-    position: absolute; /* 뷰포트 기준으로 절대 위치 설정 */
+    position: absolute;
     width: 60px;
     height: 60px;
-    background-image: url('/images/write.png'); /* 이미지 경로 설정 */
+    background-image: url('/images/write.png');
     background-size: cover;
     background-position: center;
-    bottom: 70px; /* 뷰포트 하단에서 102px 위 */
-    right: 20px; /* 뷰포트 오른쪽에서 20px 떨어진 위치 */
-    border: none; /* 테두리 제거 */
-    cursor: pointer; /* 포인터 커서로 설정 */
-    text-indent: -9999px; /* 텍스트 숨기기 */
+    bottom: 70px;
+    right: 20px;
+    border: none;
+    cursor: pointer;
+    text-indent: -9999px;
     overflow: hidden;
-    z-index: 10; /* 다른 요소보다 위에 표시 */
+    z-index: 10;
 }
 
 .pagination .page-item .page-link {
     font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
-    border-radius: 20px; /* 타원형 모양 */
+    border-radius: 20px;
     margin: 70px 10px;
     padding: 5px 15px;
     border: 1px solid #00B2FF;
@@ -209,9 +204,3 @@ tbody {
         width: 100%;
     }
 }
-
-/*.loginstyle {*/
-/*    background: #E6F7FF;*/
-/*    border: 2px solid #00B3FF;*/
-/*    border-radius: 16px;*/
-/*}*/

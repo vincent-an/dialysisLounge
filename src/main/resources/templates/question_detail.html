@@ -24,7 +24,7 @@
             <div class="right-space"></div>
         </div>
         <div class="content">
-            <!--        질문 card 시작-->
+            <!--질문 card 시작-->
             <div class="question-box">
                 <h2 class="title-text" th:text="${question.subject}"></h2>
                 <div class="q-card">
@@ -57,7 +57,6 @@
             <textarea th:field="*{content}" rows="5" class="form-control" placeholder="  답변을 남겨보세요."></textarea>
             <input type="submit" value="답변등록" class="btn btn-primary my-2 answer-button">
         </form>
-
     </div>
 </div>
 <script th:src="@{/bootstrap.min.js}"></script>

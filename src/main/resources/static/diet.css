@@ -159,6 +159,12 @@ button.banner {
     font-weight: 500;
 }
 
+.recipe-box2 {
+    width: 370px;
+    height: 53px;
+    background-color: #F8FAFB;
+}
+
 .recipe-text2 {
     width: 240px;
     font-size: 15px;
@@ -225,7 +231,7 @@ button.banner {
 
 .content {
     width: 400px;
-    padding: 0px 0px 20px 20px;
+    padding: 0px 0px 80px 20px;
 }
 
 .content-header {

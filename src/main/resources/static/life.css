@@ -108,6 +108,10 @@ body, html {
     text-align: left;
 }
 
+.content-box {
+    padding-bottom: 80px;
+}
+
 .content {
     padding: 0px 20px 20px 20px;
 }
