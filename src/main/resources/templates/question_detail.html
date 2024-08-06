@@ -59,9 +59,10 @@
                 <h5 class="title-text2" th:text="|${#lists.size(question.answerList)}개의 답변|"></h5>
                 <!-- 답변 반복 시작 -->
                 <div class="a-card" th:each="answer : ${question.answerList}">
+                    <a th:id="|answer_${answer.id}|"></a>
                     <div class="a-card-body pt-0">
                         <div class="author">
-                            <div th:if="${question.author != null}" th:text="${question.author.username}"></div>
+                            <div th:if="${question.author != null}" th:text="${answer.author.username}"></div>
                         </div>
                         <div class="card-text" style="white-space: pre-line;" th:text="${answer.content}"></div>
                         <div class="d-flex justify-content-start">

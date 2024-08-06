@@ -16,13 +16,14 @@ public class AnswerService {
     private final AnswerRepository answerRepository;
 
     //입력받은 답변을 저장하는 코드
-    public void create(Question question, String content, SiteUser author) {
+    public Answer create(Question question, String content, SiteUser author) {
         Answer answer = new Answer();
         answer.setContent(content);
         answer.setCreateDate(LocalDateTime.now());
         answer.setQuestion(question);
         answer.setAuthor(author);
         this.answerRepository.save(answer);
+        return answer;
     }
 
     public Answer getAnswer(Integer id) {
