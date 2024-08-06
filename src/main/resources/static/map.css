@@ -32,7 +32,7 @@ body, html {
 .top-bar {
     width: 462px;
     max-width: 462px;
-    height: 70px;
+    height: 80px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -69,6 +69,38 @@ body, html {
     cursor: pointer;
     margin-right: 10px;
     margin-left: 10px;
+}
+
+#search-box {
+    padding: 10px 0px 10px 0px;
+    text-align: center;
+    background-color: white;
+    position: absolute;
+    top: 80px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+    width: 462px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+}
+
+button {
+    width: 82px;
+    height: 37px;
+    border: none;
+    border-radius: 5px;
+    background-color: #F2F4F7;
+    font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+}
+
+#keyword {
+    width: 332px;
+    height: 35px;
+    border-radius: 5px;
+    background-color: #F2F4F7;
+    border: none;
+    font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
 }
 
 .content-box {
@@ -350,4 +382,19 @@ body, html {
 
 .info .link {
     color: #5085BB;
+}
+
+@media screen and (max-width: 462px) {
+    #search-box {
+        width: 100%;
+    }
+
+    button {
+        width: 60px;
+    }
+
+    #keyword {
+        width: 250px;
+    }
+
 }

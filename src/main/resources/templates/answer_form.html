@@ -20,12 +20,12 @@
                     <img src="/images/backhome-icon2.png" alt="홈" class="backhome-icon">
                 </a>
             </div>
-            <h1>답변수정</h1>
+            <h1>댓글수정</h1>
             <div class="right-space"></div>
         </div>
         <div class="content">
             <div class="mobile-container">
-                <h5 class="title-text">답변 글 수정</h5>
+                <h5 class="title-text">댓글 수정</h5>
                 <form th:object="${answerForm}" method="post">
                     <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
                     <div th:replace="~{form_errors :: formErrorsFragment}"></div>

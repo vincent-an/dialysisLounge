@@ -87,6 +87,26 @@ body {
     margin-top: 120px;
 }
 
+.kw-input {
+ margin : 0 20px;
+    font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+}
+
+input[id=search_kw] {
+    height: 40px;
+    background: url(images/kwsearch-icon.png) no-repeat;
+    background-position: right 13px center;
+    padding-left: 22px;
+    font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+}
+
+::placeholder {
+    color: #A6A6A6;
+    font-size: 15px;
+    text-align : left;
+}
+
+
 .nav-font {
     font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
 }
@@ -167,7 +187,7 @@ tbody {
     background-size: cover;
     background-position: center;
     /* 70px -> 0px 수정*/
-    bottom: 0px;
+    bottom: -40px;
     right: 20px;
     border: none;
     cursor: pointer;
@@ -175,6 +195,7 @@ tbody {
     overflow: hidden;
     z-index: 10;
 }
+
 
 .pagination .page-item .page-link {
     font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;

@@ -5,25 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>지도</title>
     <link rel="stylesheet" href="/map.css">
-    <style>
-        /* 검색창 스타일 */
-        #search-box {
-            padding: 10px;
-            text-align: center;
-            background-color: rgba(255, 255, 255, 0.7); /* 배경 투명도 설정 */
-            position: absolute;
-            top: 80px;
-            left: 50%;
-            transform: translateX(-50%);
-            z-index: 10;
-            width: 500px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-        }
-        #keyword {
-            width: 350px;
-            padding: 5px;
-        }
-    </style>
 </head>
 <body>
 <div class="background">
@@ -31,10 +12,10 @@
         <div class="top-bar">
             <div class="left-icons">
                 <a th:href="@{/main}">
-                    <img src="/images/back-icon.png" alt="뒤로가기" class="back-icon">
+                    <img src="/images/back-icon2.png" alt="뒤로가기" class="back-icon">
                 </a>
                 <a th:href="@{/main}">
-                    <img src="/images/backhome-icon.png" alt="홈" class="backhome-icon">
+                    <img src="/images/backhome-icon2.png" alt="홈" class="backhome-icon">
                 </a>
             </div>
             <h1>투석센터 찾기</h1>
@@ -42,7 +23,7 @@
         </div>
         <!-- 검색창 추가 -->
         <div id="search-box">
-            <input type="text" id="keyword" placeholder="'지역 + 투석' 검색해보세요!">
+            <input type="text" id="keyword" placeholder="  '지역 + 투석' 검색해보세요!">
             <button onclick="searchPlaces()">검색</button>
         </div>
         <div id="map" style="width:100%;height:800px;"></div>
@@ -260,13 +241,13 @@
 
                     // 마커와 검색 결과 항목에 클릭 이벤트를 등록합니다
                     (function(marker, title) {
-                        kakao.maps.event.addListener(marker, 'mouseover', function() {
-                            infowindow.setContent('<div style="padding:5px;z-index:1;">' + title + '</div>');
-                            infowindow.open(map, marker);
-                        });
-
-                        kakao.maps.event.addListener(marker, 'mouseout', function() {
-                            infowindow.close();
+                        kakao.maps.event.addListener(marker, 'click', function() {
+                            if (infowindow.getMap()) {
+                                infowindow.close();
+                            } else {
+                                infowindow.setContent('<div style="padding:5px;z-index:1;">' + title + '</div>');
+                                infowindow.open(map, marker);
+                            }
                         });
                     })(marker, places[i].place_name);
                 }

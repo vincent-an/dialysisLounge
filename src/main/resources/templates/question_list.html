@@ -37,6 +37,12 @@
                        th:href="@{/user/signup}">회원가입</a>
                 </li>
             </ul>
+            <div class="kw-input mt-3">
+                <!-- 검색 텍스트창-->
+                <input type="text" id="search_kw" class="form-control rounded-pill my-2" th:value="${kw}"
+                       style="background-color: white" placeholder="찾으시는 내용이 있나요?">
+                <!-- 검색창 end-->
+            </div>
 <!--            메뉴바 부분 End -->
             <table class="table">
                 <thead class="table-light">
@@ -65,7 +71,7 @@
                 <div class="pagination-container">
                     <ul class="pagination justify-content-center">
                         <li class="page-item" th:classappend="${!paging.hasPrevious} ? 'disabled'">
-                            <a class="page-link" th:href="@{|?page=${paging.number-1}|}">
+                            <a class="page-link" href="javascript:void(0)" th:data-page="${paging.number-1}">
                                 <span>이전</span>
                             </a>
                         </li>
@@ -73,23 +79,72 @@
                             th:if="${page >= paging.number-1 and page <= paging.number+1}"
                             th:classappend="${page == paging.number} ? 'active'"
                             class="page-item">
-                            <a th:text="${page}" class="page-link" th:href="@{|?page=${page}|}"></a>
+                            <a th:text="${page}" class="page-link" href="javascript:void(0)" th:data-page="${page}"></a>
                         </li>
                         <li class="page-item" th:classappend="${!paging.hasNext} ? 'disabled'">
-                            <a class="page-link" th:href="@{|?page=${paging.number+1}|}">
+                            <a class="page-link" href="javascript:void(0)" th:data-page="${paging.number+1}">
                                 <span>다음</span>
                             </a>
                         </li>
                     </ul>
 <!--                    css 수정 -->
-                    <a th:href="@{/question/create}" class="write-btn"></a>
+<!--                    <a th:href="@{/question/create}" class="write-btn"></a>-->
                     <!-- 메뉴바 추가시 위에 버튼 빼고 활성화-->
-<!--                    <a th:href="@{/question/create}" class="write-btn mb-4 pt-3 position-absolute bottom-0 end-1"></a>-->
+<!--                    <div>-->
+                        <a th:href="@{/question/create}" class="write-btn"></a>
+<!--                    </div>-->
                 </div>
+<!--                키워드와 page를 get방식으로 요청-->
+                <form th:action="@{/question/list}" method="get" id="searchForm">
+                    <input type="hidden" id="kw" name="kw" th:value="${kw}">
+                    <input type="hidden" id="page" name="page" th:value="${paging.number}">
+                </form>
             </div>
         </div>
     </div>
 </div>
 <script th:src="@{/bootstrap.min.js}"></script>
+<script>
+    const page_elements = document.getElementsByClassName("page-link");
+    Array.from(page_elements).forEach(function(element) {
+        element.addEventListener('click', function() {
+            document.getElementById('page').value = this.dataset.page;
+            document.getElementById('searchForm').submit();
+        });
+    });
+    // const btn_search = document.getElementById("btn_search");
+    // btn_search.addEventListener('click', function() {
+    //     document.getElementById('kw').value = document.getElementById('search_kw').value;
+    //     document.getElementById('page').value = 0;  // 검색버튼을 클릭할 경우 0페이지부터 조회한다.
+    //     document.getElementById('searchForm').submit();
+    // });
+
+    // 검색 입력 필드와 검색 폼을 가져옵니다.
+    const searchInput = document.getElementById('search_kw');
+    const searchForm = document.getElementById('searchForm');
+
+    // 입력 필드에 'keydown' 이벤트 리스너를 추가합니다.
+    searchInput.addEventListener('keydown', function(event) {
+        if (event.key === 'Enter') {  // 'Enter' 키가 눌렸는지 확인합니다.
+            event.preventDefault(); // 기본 동작(폼 제출 등)을 막습니다.
+
+            // 검색어와 페이지 번호를 설정합니다.
+            document.getElementById('kw').value = searchInput.value;
+            document.getElementById('page').value = 0;  // 0페이지부터 조회
+
+            // 폼을 제출합니다.
+            searchForm.submit();
+        }
+    });
+
+    // 검색창 이벤트 발생
+    document.getElementById("search_kw").addEventListener("focus", () => {
+        document.getElementById("search_kw").style.backgroundColor = "#E6F7FF";
+    });
+    document.getElementById("search_kw").addEventListener("blur", () => {
+        document.getElementById("search_kw").style.backgroundColor = "#FFFFFF";
+    });
+
+</script>
 </body>
 </html>

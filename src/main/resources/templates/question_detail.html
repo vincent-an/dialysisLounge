@@ -57,7 +57,7 @@
             </div>
             <div class="answer-box">
                 <!--답변의 갯수를 의미-->
-                <h5 class="title-text2" th:text="|${#lists.size(question.answerList)}개의 답변|"></h5>
+                <h5 class="title-text2" th:text="|${#lists.size(question.answerList)}개의 댓글|"></h5>
                 <!-- 답변 반복 시작 -->
                 <div class="a-card" th:each="answer : ${question.answerList}">
                     <a th:id="|answer_${answer.id}|"></a>
