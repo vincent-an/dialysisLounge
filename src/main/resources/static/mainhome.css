@@ -289,7 +289,7 @@ body {
 .footer-nav ul {
     display: flex;
     justify-content: space-between;
-    gap: 60px;
+    gap: 55px;
     margin: 0;
     list-style: none;
 }
@@ -382,7 +382,7 @@ button.search-nearby {
     }
 
     .footer-nav ul {
-        gap: 50px;
+        gap: 43px;
     }
 
     .footer-nav .nav-item img {
@@ -398,7 +398,7 @@ button.search-nearby {
     }
 
     .search-nearby .search-nearby-text .small-text {
-        font-size: 24px;
+        font-size: 18px;
         font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
     }
 
