@@ -15,7 +15,6 @@ import java.util.List;
 @Controller
 public class ServiceController {
 
-    private final AddressRepository addressRepository;
 
     @GetMapping("/management")
     public String management() {
@@ -38,9 +37,7 @@ public class ServiceController {
     }
 
     @GetMapping("/map")
-    public String map(Model model) {
-        List<Address> addressList = this.addressRepository.findAll();
-        model.addAttribute("addressList", addressList);
+    public String map() {
         return "map";
     }
 

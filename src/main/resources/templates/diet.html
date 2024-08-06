@@ -17,7 +17,7 @@
             <h1>식사 관리</h1>
             <img src="/images/lounge-logo2.png" alt="투석라운지 로고" class="lounge-logo2">
         </div>
-        <button class="banner">
+        <button class="banner" onclick="window.location.href='/service/magazine'">
             <img src="/images/dietedu-icon.png" alt="교육자료 아이콘" class="dietedu-icon">
             <span class="banner-text">투석에 대한 이해가 필요하신가요?</span>
         </button>
@@ -35,7 +35,7 @@
         </div>
         <div class="diet-recommendation-box">
             <img src="/images/dietdate-icon.png" alt="일일 식단 아이콘" class="dietdate-icon">
-            <div class="diet-date">24.08.07</div>
+            <div class="diet-date" id="date-container"></div>
             <div class="diet-info">
                 <h2 class="diet-title">일일 식단 추천</h2>
                 <p class="diet-text1">투석 시 식사관리, 전문적인 영양 설계로 추천해드릴게요.</p>
@@ -123,5 +123,21 @@
             </div>
         </div>
     </div>
+</div>
+    <script>
+        // 현재 날짜 객체 생성
+        var today = new Date();
+
+        // 연도, 월, 일 추출 및 형식화
+        var year = today.getFullYear();
+        var month = ('0' + (today.getMonth() + 1)).slice(-2);
+        var day = ('0' + today.getDate()).slice(-2);
+
+        // 형식화된 날짜 문자열 생성
+        var dateString = year + '.' + month + '.' + day;
+
+        // 날짜 문자열을 HTML의 <div> 요소에 표시
+        document.getElementById('date-container').innerHTML = dateString;
+    </script>
 </body>
 </html>
